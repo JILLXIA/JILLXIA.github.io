@@ -88,7 +88,7 @@ const theme = createTheme();
 export default function Blog() {
   return (
     <ThemeProvider theme={theme}>
-      <CssBaseline />
+      {/* <CssBaseline />
       <Container maxWidth="lg">
         <Header title="Blog" sections={sections} />
         <main>
@@ -97,7 +97,7 @@ export default function Blog() {
             {featuredPosts.map((post) => (
               <FeaturedPost key={post.title} post={post} />
             ))}
-          </Grid>
+          </Grid> */}
           {/* <Grid container spacing={5} sx={{ mt: 3 }}>
             <Main title="From the firehose" posts={posts} />
             <Sidebar
@@ -107,8 +107,8 @@ export default function Blog() {
               social={sidebar.social}
             />
           </Grid> */}
-        </main>
-      </Container>
+        {/* </main>
+      </Container> */}
       <Footer
         description="All rights reserved"
       />
