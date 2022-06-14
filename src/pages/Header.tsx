@@ -17,6 +17,9 @@ interface HeaderProps {
 export default function Header(props: HeaderProps) {
   const { sections, title } = props;
 
+  if(!sections && !title){
+    return null
+  }
   return (
     <React.Fragment>
       {/* <Toolbar sx={{ borderBottom: 1, borderColor: 'divider' }}>

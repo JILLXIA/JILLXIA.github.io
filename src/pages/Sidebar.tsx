@@ -20,7 +20,9 @@ interface SidebarProps {
 
 export default function Sidebar(props: SidebarProps) {
   const { archives, description, social, title } = props;
-
+  if(!archives && !description && !social && !title){
+    return null
+  }
   return (
     <Grid item xs={12} md={4}>
       <Paper elevation={0} sx={{ p: 2, bgcolor: 'grey.200' }}>
