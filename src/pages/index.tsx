@@ -1,10 +1,10 @@
 import * as React from "react"
-import Footer from "./Footer"
+import Blog from "./Blog"
 
 // markup
 const IndexPage = () => {
   return (
-    <Footer description={'hahaha'}/>
+    <Blog />
   )
 }
 
