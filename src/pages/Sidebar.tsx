@@ -40,7 +40,7 @@ export default function Sidebar(props: SidebarProps) {
       <Typography variant="h6" gutterBottom sx={{ mt: 3 }}>
         Social
       </Typography>
-      {social.map((network) => (
+      {social ? social.map((network) => (
         <Link
           display="block"
           variant="body1"
@@ -53,7 +53,7 @@ export default function Sidebar(props: SidebarProps) {
             <span>{network.name}</span>
           </Stack>
         </Link>
-      ))}
+      )):null}
     </Grid>
   );
 }
