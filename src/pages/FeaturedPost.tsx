@@ -14,18 +14,25 @@ interface FeaturedPostProps {
     imageLabel: string;
     title: string;
   };
+  index:number
 }
 
 export default function FeaturedPost(props: FeaturedPostProps) {
-  const { post } = props;
+  const { post,index } = props;
 
-  if(!post){
+  if(!post && !index){
     return null
   }
   return (
-    <Grid item xs={12} md={6}>
+    <Grid item xs={12}>
       <CardActionArea component="a" href="#">
         <Card sx={{ display: 'flex' }}>
+        {index % 2 == 0 && <CardMedia
+            component="img"
+            sx={{ width: 160, display: { xs: 'none', sm: 'block' } }}
+            image={post.image}
+            alt={post.imageLabel}
+          />}
           <CardContent sx={{ flex: 1 }}>
             <Typography component="h2" variant="h5">
               {post.title}
@@ -40,12 +47,12 @@ export default function FeaturedPost(props: FeaturedPostProps) {
               Continue reading...
             </Typography>
           </CardContent>
-          <CardMedia
+          {index % 2 != 0 && <CardMedia
             component="img"
             sx={{ width: 160, display: { xs: 'none', sm: 'block' } }}
             image={post.image}
             alt={post.imageLabel}
-          />
+          />}
         </Card>
       </CardActionArea>
     </Grid>
