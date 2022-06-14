@@ -13,16 +13,12 @@ import Sidebar from './Sidebar';
 import Footer from './Footer';
 
 const sections = [
-  { title: 'Technology', url: '#' },
-  { title: 'Design', url: '#' },
-  { title: 'Culture', url: '#' },
-  { title: 'Business', url: '#' },
-  { title: 'Politics', url: '#' },
+  { title: 'Education', url: '#' },
+  { title: 'Work Experience', url: '#' },
+  { title: 'Hobby', url: '#' },
   { title: 'Opinion', url: '#' },
-  { title: 'Science', url: '#' },
-  { title: 'Health', url: '#' },
-  { title: 'Style', url: '#' },
-  { title: 'Travel', url: '#' },
+  { title: 'Study', url: '#' },
+  { title: 'Contact', url: '#' }
 ];
 
 const mainFeaturedPost = {
