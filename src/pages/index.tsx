@@ -4,7 +4,7 @@ import Footer from "./Footer"
 // markup
 const IndexPage = () => {
   return (
-    <Footer />
+    <Footer description={'hahaha'}/>
   )
 }
 
