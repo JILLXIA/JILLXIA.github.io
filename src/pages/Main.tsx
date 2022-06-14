@@ -11,7 +11,9 @@ interface MainProps {
 
 export default function Main(props: MainProps) {
   const { posts, title } = props;
-
+  if(!posts && !title){
+    return null
+  }
   return (
     <Grid
       item
