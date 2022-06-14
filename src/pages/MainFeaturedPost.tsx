@@ -28,11 +28,11 @@ export default function MainFeaturedPost(props: MainFeaturedPostProps) {
         backgroundSize: 'cover',
         backgroundRepeat: 'no-repeat',
         backgroundPosition: 'center',
-        backgroundImage: `url(${post.image})`,
+        backgroundImage: `url(${post?.image})`,
       }}
     >
       {/* Increase the priority of the hero background image */}
-      {<img style={{ display: 'none' }} src={post.image} alt={post.imageText} />}
+      {<img style={{ display: 'none' }} src={post?.image} alt={post.imageText} />}
       <Box
         sx={{
           position: 'absolute',
