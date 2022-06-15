@@ -18,9 +18,13 @@
   "dependencies": {
     "@emotion/react": "^11.9.3",
     "@emotion/styled": "^11.9.3",
+    "@mdx-js/mdx": "v1",
+    "@mdx-js/react": "v1",
     "@mui/icons-material": "^5.8.3",
     "@mui/material": "^5.8.3",
     "gatsby": "^4.16.0",
+    "gatsby-plugin-mdx": "^3.16.1",
+    "gatsby-source-filesystem": "^4.16.0",
     "markdown-to-jsx": "^7.1.7",
     "react": "^18.1.0",
     "react-dom": "^18.1.0"
