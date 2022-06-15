@@ -13,7 +13,7 @@ import Sidebar from './Sidebar';
 import Footer from './Footer';
 
 const sections = [
-  { title: 'Education', url: '#' },
+  { title: 'Education', url: '/content' },
   { title: 'Work Experience', url: '#' },
   { title: 'Hobby', url: '#' },
   { title: 'Opinion', url: '#' },
