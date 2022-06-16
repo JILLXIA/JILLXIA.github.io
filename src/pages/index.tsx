@@ -1,10 +1,10 @@
 import * as React from "react"
-import Blog from "./Blog"
+import Home from "./Home"
 
 // markup
 const IndexPage = () => {
   return (
-    <Blog />
+    <Home />
   )
 }
 

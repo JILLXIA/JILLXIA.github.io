@@ -2,8 +2,8 @@ import * as React from 'react';
 import CssBaseline from '@mui/material/CssBaseline';
 import Container from '@mui/material/Container';
 import { createTheme, ThemeProvider } from '@mui/material/styles';
-import Header from './Header';
-import Footer from './Footer';
+import Header from '../Header';
+import Footer from '../Footer';
 import { MDXRenderer } from "gatsby-plugin-mdx"
 import { graphql, useStaticQuery } from "gatsby"
 import Link from '@mui/material/Link';
@@ -40,8 +40,8 @@ export default function content() {
         const view = data.allMdx.nodes.map((node:any) => (
             <article key={node.id}>
                 <h2>
-                    <Link href={`/${node.slug}`}>
-                    {node.frontmatter.title}
+                    <Link href={`/blog/${node.slug}`}>
+                        {node.frontmatter.title}
                     </Link>
                 </h2>
                 <p>Posted: {node.frontmatter.date}</p>

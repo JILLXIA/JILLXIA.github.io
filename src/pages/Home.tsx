@@ -13,7 +13,7 @@ import Sidebar from './Sidebar';
 import Footer from './Footer';
 
 const sections = [
-  { title: 'Education', url: '/content' },
+  { title: 'Education', url: '/blog' },
   { title: 'Work Experience', url: '#' },
   { title: 'Hobby', url: '#' },
   { title: 'Opinion', url: '#' },
@@ -77,7 +77,7 @@ const sidebar = {
 
 const theme = createTheme();
 
-export default function Blog() {
+export default function Home() {
 
   return (
     <ThemeProvider theme={theme}>
