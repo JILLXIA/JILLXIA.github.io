@@ -6,6 +6,7 @@ import Header from './Header';
 import Footer from './Footer';
 import { MDXRenderer } from "gatsby-plugin-mdx"
 import { graphql, useStaticQuery } from "gatsby"
+import Link from '@mui/material/Link';
 const theme = createTheme();
 const sections = [
     { title: 'Education', url: '#' },
@@ -27,7 +28,8 @@ export default function content() {
               title
               date
             }
-            body
+            id
+            slug
           }
         }
       }
@@ -37,11 +39,12 @@ export default function content() {
     const blogContent = () => {
         const view = data.allMdx.nodes.map((node:any) => (
             <article key={node.id}>
-                <h2>{node.frontmatter.title}</h2>
+                <h2>
+                    <Link href={`/${node.slug}`}>
+                    {node.frontmatter.title}
+                    </Link>
+                </h2>
                 <p>Posted: {node.frontmatter.date}</p>
-                <MDXRenderer>
-                    {node.body}
-                </MDXRenderer>
             </article>
         ))
         return view

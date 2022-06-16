@@ -13,7 +13,7 @@ const config: GatsbyConfig = {
   {
     resolve: `gatsby-source-filesystem`,
     options: {
-      name: `posts`,
+      name: `mdx`,
       path: `${__dirname}/src/mdx/`,
     },
   },
