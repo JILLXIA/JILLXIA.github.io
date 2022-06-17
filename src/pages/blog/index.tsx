@@ -41,10 +41,10 @@ export default function content() {
             <article key={node.id}>
                 <h2>
                     <Link href={`/blog/${node.slug}`}>
-                        {node.frontmatter.title}
+                        {node?.frontmatter?.title}
                     </Link>
                 </h2>
-                <p>Posted: {node.frontmatter.date}</p>
+                <p>Posted: {node?.frontmatter?.date}</p>
             </article>
         ))
         return view

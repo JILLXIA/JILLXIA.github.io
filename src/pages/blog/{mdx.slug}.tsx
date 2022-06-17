@@ -25,17 +25,17 @@ export default function content(props:any) {
       <CssBaseline />
       <Container maxWidth="lg">
         <Header title="Blog" sections={sections} />
-            <p>{props.data.mdx.frontmatter.date}</p>
+            <p>{props.data?.mdx?.frontmatter?.date}</p>
             {image ? 
             <>
             <GatsbyImage
               image={image}
-              alt={props.data.mdx.frontmatter.hero_image_alt}
+              alt={props.data?.mdx?.frontmatter?.hero_image_alt}
             />
             <p>
               Photo Credit:{" "}
-              <a href={props.data.mdx.frontmatter.hero_image_credit_link}>
-                {props.data.mdx.frontmatter.hero_image_credit_text}
+              <a href={props.data?.mdx?.frontmatter?.hero_image_credit_link}>
+                {props.data?.mdx?.frontmatter?.hero_image_credit_text}
               </a>
             </p>
             </>: null }

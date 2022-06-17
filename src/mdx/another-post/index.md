@@ -14,12 +14,13 @@ Here's another post! It's even better than the first one!
 
 > hahahah
 
-```
-public static void
+```java{numberLines: true}
+public static void main(String[] args){
+    int a = 1;
+}
 ```
 image.png
 
-![avatar](src/mdx/another-post/image1.jpg)
+![avatar](./image1.jpg)
 
-![image-20220616171612819](/Users/xiayudi/Library/Application Support/typora-user-images/image-20220616171612819.png)
 
