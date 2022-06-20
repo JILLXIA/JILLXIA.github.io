@@ -5,7 +5,7 @@ import { createTheme, ThemeProvider } from '@mui/material/styles';
 import Header from '../Header';
 import Footer from '../Footer';
 import { MDXRenderer } from "gatsby-plugin-mdx"
-import { graphql, useStaticQuery } from "gatsby"
+import { graphql, Link, useStaticQuery } from "gatsby"
 import { GatsbyImage, getImage } from 'gatsby-plugin-image'
 const theme = createTheme();
 const sections = [
@@ -19,7 +19,7 @@ const sections = [
 export default function content(props:any) {
   console.log(`${JSON.stringify(props)}`)
   const image = getImage(props.data.mdx.frontmatter?.hero_image)
-
+  const { previous, next } = props.data
   return (
     <ThemeProvider theme={theme}>
       <CssBaseline />
@@ -42,6 +42,32 @@ export default function content(props:any) {
             <MDXRenderer>
                 {props.data.mdx.body}
             </MDXRenderer>
+            <nav className="blog-post-nav">
+              <ul
+                style={{
+                  display: `flex`,
+                  flexWrap: `wrap`,
+                  justifyContent: `space-between`,
+                  listStyle: `none`,
+                  padding: 0,
+                }}
+              >
+                <li>
+                  {previous ? (
+                    <Link to={previous.slug} rel="prev">
+                      ← {previous.frontmatter.title}
+                    </Link>
+                  ):null}
+                </li>
+                <li>
+                  {next ? (
+                    <Link to={next.slug} rel="next">
+                      {next.frontmatter.title} →
+                    </Link>
+                  ):null}
+                </li>
+              </ul>
+            </nav>
       </Container>
       <Footer
         description="All rights reserved"
@@ -52,7 +78,9 @@ export default function content(props:any) {
 
 // useStaticQuery 是不能传入参数的
 export const query = graphql`
-  query ($id: String) {
+  query ($id: String
+    $previousPostId: String
+    $nextPostId: String) {
     mdx(id: {eq: $id}) {
       frontmatter {
         title
@@ -67,6 +95,18 @@ export const query = graphql`
         }
       }
       body
+    }
+    previous: mdx(id: { eq: $previousPostId }) {
+      slug
+      frontmatter {
+        title
+      }
+    }
+    next: mdx(id: { eq: $nextPostId }) {
+      slug
+      frontmatter {
+        title
+      }
     }
   }
 `
