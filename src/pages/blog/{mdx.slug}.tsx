@@ -2,8 +2,8 @@ import * as React from 'react';
 import CssBaseline from '@mui/material/CssBaseline';
 import Container from '@mui/material/Container';
 import { createTheme, ThemeProvider } from '@mui/material/styles';
-import Header from '../Header';
-import Footer from '../Footer';
+import Header from '../../components/Header';
+import Footer from '../../components/Footer';
 import { MDXRenderer } from "gatsby-plugin-mdx"
 import { graphql, Link, useStaticQuery } from "gatsby"
 import Typography from '@mui/material/Typography';

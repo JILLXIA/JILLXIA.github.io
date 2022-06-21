@@ -2,13 +2,13 @@ import React, { useState } from 'react'
 import CssBaseline from '@mui/material/CssBaseline';
 import Container from '@mui/material/Container';
 import { createTheme, ThemeProvider } from '@mui/material/styles';
-import Header from '../Header';
-import Footer from '../Footer';
+import Header from '../../components/Header';
+import Footer from '../../components/Footer';
 import { MDXRenderer } from "gatsby-plugin-mdx"
 import { graphql, useStaticQuery } from "gatsby"
 import Link from '@mui/material/Link'
 import List from '@mui/material/List';
-import MainFeaturedPost from '../MainFeaturedPost';
+import MainFeaturedPost from '../../components/MainFeaturedPost';
 import Pagination from '@mui/material/Pagination'
 import Stack from '@mui/material/Stack'
 import Card from '@mui/material/Card';
