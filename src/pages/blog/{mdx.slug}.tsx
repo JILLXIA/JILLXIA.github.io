@@ -6,7 +6,9 @@ import Header from '../Header';
 import Footer from '../Footer';
 import { MDXRenderer } from "gatsby-plugin-mdx"
 import { graphql, Link, useStaticQuery } from "gatsby"
+import Typography from '@mui/material/Typography';
 import { GatsbyImage, getImage } from 'gatsby-plugin-image'
+
 const theme = createTheme();
 const sections = [
     { title: 'Education', url: '#' },
@@ -18,56 +20,20 @@ const sections = [
   ];
 export default function content(props:any) {
   console.log(`${JSON.stringify(props)}`)
-  const image = getImage(props.data.mdx.frontmatter?.hero_image)
-  const { previous, next } = props.data
   return (
     <ThemeProvider theme={theme}>
       <CssBaseline />
       <Container maxWidth="lg">
         <Header title="Blog" sections={sections} />
-            <p>{props.data?.mdx?.frontmatter?.date}</p>
-            {image ? 
-            <>
-            <GatsbyImage
-              image={image}
-              alt={props.data?.mdx?.frontmatter?.hero_image_alt}
-            />
-            <p>
-              Photo Credit:{" "}
-              <a href={props.data?.mdx?.frontmatter?.hero_image_credit_link}>
-                {props.data?.mdx?.frontmatter?.hero_image_credit_text}
-              </a>
-            </p>
-            </>: null }
-            <MDXRenderer>
+          <Typography variant="h2" component="div" gutterBottom sx={{marginTop:3}}>
+            {props.data?.mdx?.frontmatter?.title}
+          </Typography>
+          <Typography variant="subtitle1" color="text.secondary" sx={{fontStyle:'italic'}}>
+            Posted: {props.data?.mdx?.frontmatter?.date}
+          </Typography>
+          <MDXRenderer>
                 {props.data.mdx.body}
             </MDXRenderer>
-            <nav className="blog-post-nav">
-              <ul
-                style={{
-                  display: `flex`,
-                  flexWrap: `wrap`,
-                  justifyContent: `space-between`,
-                  listStyle: `none`,
-                  padding: 0,
-                }}
-              >
-                <li>
-                  {previous ? (
-                    <Link to={previous.slug} rel="prev">
-                      ← {previous.frontmatter.title}
-                    </Link>
-                  ):null}
-                </li>
-                <li>
-                  {next ? (
-                    <Link to={next.slug} rel="next">
-                      {next.frontmatter.title} →
-                    </Link>
-                  ):null}
-                </li>
-              </ul>
-            </nav>
       </Container>
       <Footer
         description="All rights reserved"
@@ -78,35 +44,13 @@ export default function content(props:any) {
 
 // useStaticQuery 是不能传入参数的
 export const query = graphql`
-  query ($id: String
-    $previousPostId: String
-    $nextPostId: String) {
+  query ($id: String) {
     mdx(id: {eq: $id}) {
       frontmatter {
         title
         date(formatString: "MMMM D, YYYY")
-        hero_image_alt
-        hero_image_credit_link
-        hero_image_credit_text
-        hero_image {
-          childImageSharp {
-            gatsbyImageData
-          }
-        }
       }
       body
-    }
-    previous: mdx(id: { eq: $previousPostId }) {
-      slug
-      frontmatter {
-        title
-      }
-    }
-    next: mdx(id: { eq: $nextPostId }) {
-      slug
-      frontmatter {
-        title
-      }
     }
   }
 `

@@ -15,10 +15,24 @@ Here's another post! It's even better than the first one!
 
 > hahahah
 
-```java{numberLines: true}
-public static void main(String[] args){
-    int a = 1;
+```javascript{numberLines: true}
+const onChange = (event: object, page: number) => {
+    setPageNumber(page)
 }
+```
+
+```javascript
+// In your gatsby-config.js
+plugins: [
+  {
+    resolve: `gatsby-transformer-remark`,
+    options: {
+      plugins: [
+        `gatsby-remark-prismjs`,
+      ]
+    }
+  }
+]
 ```
 image.png
 

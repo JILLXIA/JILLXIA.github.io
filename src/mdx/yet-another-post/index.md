@@ -9,3 +9,21 @@ hero_image_credit_link: "https://unsplash.com/photos/ocZ-_Y7-Ptg"
 ---
 
 Wow look at all this content. How do they do it?
+
+![GATSBY_EMPTY_ALT](./image3.jpg)
+
+![GATSBY_EMPTY_ALT](./image3.jpg)
+
+```javascript
+// In your gatsby-config.js
+plugins: [
+  {
+    resolve: `gatsby-transformer-remark`,
+    options: {
+      plugins: [
+        `gatsby-remark-prismjs`,
+      ]
+    }
+  }
+]
+```

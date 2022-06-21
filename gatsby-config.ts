@@ -12,9 +12,38 @@ const config: GatsbyConfig = {
   // Learn more at: https://gatsby.dev/graphql-typegen
   graphqlTypegen: true,
   plugins: [
-    // "gatsby-transformer-remark",
-    "gatsby-remark-prismjs",
     "gatsby-remark-images",
+    {
+      resolve: `gatsby-transformer-remark`,
+      options: {
+        // Footnotes mode (default: true)
+        footnotes: true,
+        // GitHub Flavored Markdown mode (default: true)
+        gfm: true,
+        // Plugins configs
+        plugins: [
+          {
+            resolve: `gatsby-remark-prismjs`,
+            options: {
+              classPrefix: `language-`,
+              inlineCodeMarker:null,
+              aliases: {},
+              showLineNumbers: true,
+              noInlineHighlight: false,
+            },
+          },
+          {
+            resolve: `gatsby-remark-images`,
+            options: {
+              // It's important to specify the maxWidth (in pixels) of
+              // the content container as this plugin uses this as the
+              // base for generating different widths of each image.
+              maxWidth: 590,
+           },
+          },
+        ],
+      },
+    },
     "gatsby-plugin-image",
     "gatsby-plugin-sharp",
     "gatsby-transformer-sharp",
@@ -28,9 +57,6 @@ const config: GatsbyConfig = {
     {
       resolve: `gatsby-plugin-mdx`,
       options: {
-        plugins:[
-          "gatsby-transformer-remark"
-        ],
         extensions: [`.mdx`, `.md`],
         gatsbyRemarkPlugins: [
           {
@@ -38,24 +64,10 @@ const config: GatsbyConfig = {
             options: {
               maxWidth: 590,
             },
-          },
-          "gatsby-transformer-remark"
+          }
         ],
       },
     },
-    // {
-    //   resolve: `gatsby-transformer-remark`,
-    //   options: {
-    //     // Footnotes mode (default: true)
-    //     footnotes: true,
-    //     // GitHub Flavored Markdown mode (default: true)
-    //     gfm: true,
-    //     // Plugins configs
-    //     plugins:[
-    //       `gatsby-remark-prismjs`,
-    //     ]
-    //   }
-    // }
   ]
 }
 

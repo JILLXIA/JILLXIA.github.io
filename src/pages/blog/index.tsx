@@ -44,9 +44,8 @@ export default function content() {
     // 函数式组件的用法
     const data = useStaticQuery(graphql`
     query MyQuery {
-        allMdx(sort: {fields: frontmatter___date, order: DESC}) {
+      allMdx(sort: {fields: frontmatter___date, order: DESC}) {
           nodes {
-            rawBody
             frontmatter {
               title
               date
