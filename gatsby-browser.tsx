@@ -3,7 +3,7 @@ import { MDXProvider } from '@mdx-js/react';
 import Highlight, { defaultProps } from 'prism-react-renderer';
 import theme from "prism-react-renderer/themes/duotoneLight";
 import styled from "styled-components";
-
+import "./src/styles/global.css"
 /* eslint-disable */
 const Pre = styled.pre`
   text-align: left;
