@@ -4,7 +4,6 @@ import Container from '@mui/material/Container';
 import { createTheme, ThemeProvider } from '@mui/material/styles';
 import Header from '../../components/Header';
 import Footer from '../../components/Footer';
-import { MDXRenderer } from "gatsby-plugin-mdx"
 import { graphql, useStaticQuery } from "gatsby"
 import Link from '@mui/material/Link'
 import List from '@mui/material/List';
@@ -12,23 +11,12 @@ import MainFeaturedPost from '../../components/MainFeaturedPost';
 import Pagination from '@mui/material/Pagination'
 import Stack from '@mui/material/Stack'
 import Card from '@mui/material/Card';
-import CardActionArea from '@mui/material/CardActionArea';
 import CardContent from '@mui/material/CardContent';
-import CardMedia from '@mui/material/CardMedia';
 import Typography from '@mui/material/Typography';
 import Grid from '@mui/material/Grid';
-import Paper from '@mui/material/Paper';
 import Image from '../../images/mouse_hover.jpg';
 import Box from '@mui/material/Box';
 const theme = createTheme();
-const sections = [
-    { title: 'Education', url: '#' },
-    { title: 'Work Experience', url: '#' },
-    { title: 'Hobby', url: '#' },
-    { title: 'Opinion', url: '#' },
-    { title: 'Study', url: '#' },
-    { title: 'Contact', url: '#' }
-  ];
 
 const DEFAULT_PAGE = 1
 const PAGE_SIZE = 2

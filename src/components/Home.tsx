@@ -9,18 +9,8 @@ import { createTheme, ThemeProvider } from '@mui/material/styles';
 import Header from './Header';
 import MainFeaturedPost from './MainFeaturedPost';
 import FeaturedPost from './FeaturedPost';
-import Sidebar from './Sidebar';
 import Footer from './Footer';
 import Box from '@mui/material/Box';
-
-const sections = [
-  { title: 'Education', url: '/blog' },
-  { title: 'Work Experience', url: '#' },
-  { title: 'Hobby', url: '#' },
-  { title: 'Opinion', url: '#' },
-  { title: 'Study', url: '#' },
-  { title: 'Contact', url: '#' }
-];
 
 const mainFeaturedPost = {
   title: 'Title of a longer featured blog post',
@@ -49,32 +39,6 @@ const featuredPosts = [
     imageLabel: 'Image Text',
   },
 ];
-
-const posts = ['post1', 'post2', 'post3'];
-
-const sidebar = {
-  title: 'About',
-  description:
-    'Etiam porta sem malesuada magna mollis euismod. Cras mattis consectetur purus sit amet fermentum. Aenean lacinia bibendum nulla sed consectetur.',
-  archives: [
-    { title: 'March 2020', url: '#' },
-    { title: 'February 2020', url: '#' },
-    { title: 'January 2020', url: '#' },
-    { title: 'November 1999', url: '#' },
-    { title: 'October 1999', url: '#' },
-    { title: 'September 1999', url: '#' },
-    { title: 'August 1999', url: '#' },
-    { title: 'July 1999', url: '#' },
-    { title: 'June 1999', url: '#' },
-    { title: 'May 1999', url: '#' },
-    { title: 'April 1999', url: '#' },
-  ],
-  social: [
-    { name: 'GitHub', icon: GitHubIcon },
-    { name: 'Twitter', icon: TwitterIcon },
-    { name: 'Facebook', icon: FacebookIcon },
-  ],
-};
 
 const theme = createTheme();
 

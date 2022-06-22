@@ -36,7 +36,7 @@ export default function Header() {
             sx={{alignItems:'center'}}
             >
             <Link href="/blog" underline="none" color="inherit">Blog</Link>
-            <Link href="/" underline="none" color="inherit">Contact</Link>
+            <Link href="/contact" underline="none" color="inherit">Contact</Link>
             <Avatar alt="Yudi Xia" src={Image} onClick={() => { navigate('https://github.com/JILLXIA')}}/>
           </Stack>
         </Toolbar>
