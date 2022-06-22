@@ -83,7 +83,7 @@ export default function Home() {
     <ThemeProvider theme={theme}>
       <CssBaseline />
       <Container maxWidth="lg">
-        <Header title="Blog" sections={sections} />
+        <Header />
         <main>
           <MainFeaturedPost post={mainFeaturedPost} />
           <Grid container spacing={4}>
@@ -91,7 +91,7 @@ export default function Home() {
               <FeaturedPost key={post.title} post={post} index={index}/>
             ))}
           </Grid>
-         </main>
+         </main> 
       </Container>
       <Footer
         description="All rights reserved"

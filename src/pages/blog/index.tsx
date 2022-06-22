@@ -104,7 +104,7 @@ export default function content() {
     <ThemeProvider theme={theme}>
       <CssBaseline />
       <Container maxWidth="lg">
-        <Header title="Blog" sections={sections} />
+        <Header />
         <MainFeaturedPost post={mainFeaturedPost} />
         {blogContent()}
         <Stack spacing={2}>

@@ -5,60 +5,42 @@ import IconButton from '@mui/material/IconButton';
 import SearchIcon from '@mui/icons-material/Search';
 import Typography from '@mui/material/Typography';
 import Link from '@mui/material/Link';
-
-interface HeaderProps {
-  sections: ReadonlyArray<{
-    title: string;
-    url: string;
-  }>;
-  title: string;
-}
-
-export default function Header(props: HeaderProps) {
-  const { sections, title } = props;
-
-  if(!sections && !title){
-    return null
-  }
+import AppBar from '@mui/material/AppBar';
+import HomeIcon from '@mui/icons-material/Home';
+import { navigate } from "gatsby"
+import Avatar from '@mui/material/Avatar';
+import Image from '../images/avator.jpg';
+import Stack from '@mui/material/Stack';
+export default function Header() {
   return (
     <React.Fragment>
-      {/* <Toolbar sx={{ borderBottom: 1, borderColor: 'divider' }}>
-        <Button size="small">Subscribe</Button>
-        <Typography
-          component="h2"
-          variant="h5"
-          color="inherit"
-          align="center"
-          noWrap
-          sx={{ flex: 1 }}
+      {/* <AppBar position="sticky"> */}
+        <Toolbar
+          variant="dense"
+          sx={{ 
+            justifyContent: 'space-between', 
+            alignContent:'center', 
+            position:'sticky',
+            top:0,
+            zIndex:1,
+            overflowX: 'auto', 
+            backgroundColor:'#fff' ,
+            paddingTop:1,
+            paddingBottom:1
+          }}
         >
-          {title}
-        </Typography>
-        <IconButton>
-          <SearchIcon />
-        </IconButton>
-        <Button variant="outlined" size="small">
-          Sign up
-        </Button>
-      </Toolbar> */}
-      <Toolbar
-        component="nav"
-        variant="dense"
-        sx={{ justifyContent: 'space-between', overflowX: 'auto' }}
-      >
-        {sections.map((section) => (
-          <Link
-            color="inherit"
-            noWrap
-            key={section.title}
-            variant="body2"
-            href={section.url}
-            sx={{ p: 1, flexShrink: 0 }}
-          >
-            {section.title}
-          </Link>
-        ))}
-      </Toolbar>
+          <HomeIcon sx={{zIndex:10}} onClick={() => { navigate(`/`)}}/>
+          <Stack
+            direction="row"
+            spacing={5}
+            sx={{alignItems:'center'}}
+            >
+            <Link href="/blog" underline="none" color="inherit">Blog</Link>
+            <Link href="/" underline="none" color="inherit">Contact</Link>
+            <Avatar alt="Yudi Xia" src={Image} onClick={() => { navigate('https://github.com/JILLXIA')}}/>
+          </Stack>
+        </Toolbar>
+      {/* </AppBar> */}
     </React.Fragment>
   );
 }

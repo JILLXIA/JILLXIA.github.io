@@ -1,4 +1,4 @@
-import * as React from 'react';
+import React, { useState } from 'react'
 import CssBaseline from '@mui/material/CssBaseline';
 import Container from '@mui/material/Container';
 import { createTheme, ThemeProvider } from '@mui/material/styles';
@@ -9,6 +9,9 @@ import Typography from '@mui/material/Typography';
 import Grid from '@mui/material/Grid';
 import Paper from '@mui/material/Paper';
 import { navigate } from "gatsby"
+import ArrowBackIosNewIcon from '@mui/icons-material/ArrowBackIosNew';
+import ArrowForwardIosIcon from '@mui/icons-material/ArrowForwardIos';
+import Image from '../images/mouse_hover.jpg';
 const theme = createTheme();
 const sections = [
     { title: 'Education', url: '#' },
@@ -20,11 +23,13 @@ const sections = [
   ];
 export default function content({ pageContext }:any) {
     const { product } = pageContext
+    const [leftPage, setLeftPage] = useState<boolean>(false)
+    const [rightPage, setRightPage] = useState<boolean>(false)
   return (
     <ThemeProvider theme={theme}>
       <CssBaseline />
       <Container maxWidth="lg">
-        <Header title="Blog" sections={sections} />
+        <Header />
         <Typography variant="h2" component="div" gutterBottom sx={{marginTop:3}}>
             {product?.node?.frontmatter?.title}
         </Typography>
@@ -35,36 +40,52 @@ export default function content({ pageContext }:any) {
             {product?.node?.body}
         </MDXRenderer>
         <Grid direction="row" container alignItems="center" justifyContent="space-between" xs={12} sx={{ flex:1, marginTop: 15}}>
-            <Paper 
-                sx={{flex:1, marginRight:10, padding:3}} 
-                elevation={4} 
+            {product?.previous?.slug ? <Paper 
+                sx={{width:430, padding:3, backgroundImage: leftPage ? `url(${Image})` : null}} 
+                elevation={leftPage ? 6:4} 
                 onClick={() => {
                     if(product?.previous?.slug){
                         navigate(`/blog/${product?.previous?.slug}`)
                     }
-                }}>
-                <Typography variant="h6" gutterBottom component="div">
-                    NEXT
-                </Typography>
-                <Typography variant="subtitle1" gutterBottom component="div">
-                    {product?.previous?.frontmatter?.title ?? 'This is the first blog.'}
-                </Typography>
-            </Paper>
-            <Paper 
-                sx={{flex:1, marginLeft:10,padding:3}} 
-                elevation={4} 
+                }}
+                onMouseEnter={() => {setLeftPage(true)}}
+                onMouseLeave={() => {setLeftPage(false)}}
+              >
+                <Grid direction="row" container alignItems="center">
+                    <ArrowBackIosNewIcon />
+                    <Grid sx={{marginLeft:3}}>
+                        <Typography variant="h6" gutterBottom component="div">
+                            NEXT
+                        </Typography>
+                        <Typography variant="subtitle1" gutterBottom component="div">
+                            {product?.previous?.frontmatter?.title ?? 'This is the first blog.'}
+                        </Typography>
+                    </Grid>
+                </Grid>  
+            </Paper>: null}
+            {product?.next?.slug ? <Paper 
+                sx={{width:430,padding:3,backgroundImage: rightPage ? `url(${Image})` : null}} 
+                elevation={rightPage ? 6 : 4} 
                 onClick={() => {
                     if(product?.next?.slug){
                         navigate(`/blog/${product?.next?.slug}`)
                     }
-                }}>
-                <Typography variant="h6" gutterBottom component="div" sx={{textAlign:'right'}}>
-                    PREVIOUS
-                </Typography>
-                <Typography variant="subtitle1" gutterBottom component="div" sx={{textAlign:'right'}}>
-                    {product?.next?.frontmatter?.title ?? 'This is the last blog.'}
-                </Typography>
-            </Paper>
+                }}
+                onMouseEnter={() => {setRightPage(true)}}
+                onMouseLeave={() => {setRightPage(false)}}
+                >
+                <Grid direction="row" container alignItems="center" justifyContent="flex-end">
+                    <Grid sx={{marginRight:3}}>
+                        <Typography variant="h6" gutterBottom component="div" sx={{textAlign:'right'}}>
+                            PREVIOUS
+                        </Typography>
+                        <Typography variant="subtitle1" gutterBottom component="div" sx={{textAlign:'right'}}>
+                            {product?.next?.frontmatter?.title ?? 'This is the last blog.'}
+                        </Typography>
+                    </Grid>
+                    <ArrowForwardIosIcon />
+                </Grid>
+            </Paper>: null}
         </Grid>
       </Container>
       <Footer
