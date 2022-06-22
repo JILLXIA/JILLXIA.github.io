@@ -11,6 +11,7 @@ import MainFeaturedPost from './MainFeaturedPost';
 import FeaturedPost from './FeaturedPost';
 import Sidebar from './Sidebar';
 import Footer from './Footer';
+import Box from '@mui/material/Box';
 
 const sections = [
   { title: 'Education', url: '/blog' },
@@ -84,14 +85,14 @@ export default function Home() {
       <CssBaseline />
       <Container maxWidth="lg">
         <Header />
-        <main>
+        <Box sx={{marginLeft:0.3, marginRight: 0.3}}>
           <MainFeaturedPost post={mainFeaturedPost} />
           <Grid container spacing={4}>
             {featuredPosts.map((post,index) => (
               <FeaturedPost key={post.title} post={post} index={index}/>
             ))}
           </Grid>
-         </main> 
+         </Box> 
       </Container>
       <Footer
         description="All rights reserved"

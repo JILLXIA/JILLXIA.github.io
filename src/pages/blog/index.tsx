@@ -19,6 +19,7 @@ import Typography from '@mui/material/Typography';
 import Grid from '@mui/material/Grid';
 import Paper from '@mui/material/Paper';
 import Image from '../../images/mouse_hover.jpg';
+import Box from '@mui/material/Box';
 const theme = createTheme();
 const sections = [
     { title: 'Education', url: '#' },
@@ -105,16 +106,18 @@ export default function content() {
       <CssBaseline />
       <Container maxWidth="lg">
         <Header />
-        <MainFeaturedPost post={mainFeaturedPost} />
-        {blogContent()}
-        <Stack spacing={2}>
-          <Pagination 
-            sx={{alignSelf:'center', marginTop:5}} 
-            count={Math.ceil(data.allMdx.nodes.length/PAGE_SIZE)} 
-            color="primary" 
-            size="large"
-            onChange={onChange}/>
-        </Stack>
+        <Box sx={{marginLeft:0.3, marginRight: 0.3}}>
+          <MainFeaturedPost post={mainFeaturedPost} />
+          {blogContent()}
+          <Stack spacing={2}>
+            <Pagination 
+              sx={{alignSelf:'center', marginTop:5}} 
+              count={Math.ceil(data.allMdx.nodes.length/PAGE_SIZE)} 
+              color="primary" 
+              size="large"
+              onChange={onChange}/>
+          </Stack>
+        </Box>
       </Container>
       <Footer
         description="All rights reserved"
