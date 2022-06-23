@@ -5,13 +5,20 @@ import IconButton from '@mui/material/IconButton';
 import SearchIcon from '@mui/icons-material/Search';
 import Typography from '@mui/material/Typography';
 import Link from '@mui/material/Link';
-import AppBar from '@mui/material/AppBar';
 import HomeIcon from '@mui/icons-material/Home';
 import { navigate } from "gatsby"
 import Avatar from '@mui/material/Avatar';
 import Image from '../images/avator.jpg';
 import Stack from '@mui/material/Stack';
-export default function Header() {
+import Badge from '@mui/material/Badge';
+
+export enum PageType{
+  HOME = 1,
+  BLOG = 2,
+  CONTACT = 3
+}
+export default function Header(props:any) {
+  const { pageType } = props
   return (
     <React.Fragment>
       {/* <AppBar position="sticky"> */}
@@ -29,14 +36,41 @@ export default function Header() {
             paddingBottom:1
           }}
         >
-          <HomeIcon sx={{zIndex:10}} onClick={() => { navigate(`/`)}}/>
+          <Badge
+            anchorOrigin={{
+              vertical: 'bottom',
+              horizontal: 'right',
+            }}
+            invisible={!(pageType===PageType.HOME)}
+            color="primary" badgeContent=" " variant="dot"
+          >
+            <HomeIcon sx={{zIndex:10}} onClick={() => { navigate(`/`)}}/>
+          </Badge>
           <Stack
             direction="row"
             spacing={5}
             sx={{alignItems:'center'}}
             >
-            <Link href="/blog" underline="none" color="inherit">Blog</Link>
-            <Link href="/contact" underline="none" color="inherit">Contact</Link>
+            <Badge
+              anchorOrigin={{
+                vertical: 'bottom',
+                horizontal: 'right',
+              }}
+              invisible={!(pageType===PageType.BLOG)}
+              color="primary" badgeContent=" " variant="dot"
+            >
+              <Link href="/blog" underline="none" color="inherit">Blog</Link>
+            </Badge>
+            <Badge
+              anchorOrigin={{
+                vertical: 'bottom',
+                horizontal: 'right',
+              }}
+              invisible={!(pageType===PageType.CONTACT)}
+              color="primary" badgeContent=" " variant="dot"
+            >
+              <Link href="/contact" underline="none" color="inherit">Contact</Link>
+            </Badge>
             <Avatar alt="Yudi Xia" src={Image} onClick={() => { navigate('https://github.com/JILLXIA')}}/>
           </Stack>
         </Toolbar>

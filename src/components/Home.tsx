@@ -11,14 +11,18 @@ import MainFeaturedPost from './MainFeaturedPost';
 import FeaturedPost from './FeaturedPost';
 import Footer from './Footer';
 import Box from '@mui/material/Box';
+import { PageType } from './Header';
 
 const mainFeaturedPost = {
-  title: 'Title of a longer featured blog post',
-  description:
-    "Multiple lines of text that form the lede, informing new readers quickly and efficiently about what's most interesting in this post's contents.",
+  title: 'Welcome',
+  description:"555",
   image: 'https://source.unsplash.com/random',
   imageText: 'main image description',
-  linkText: 'Continue reading…',
+  texts:[
+    'Hi, I am Yudi Xia, a graduate student in Rice University majored in Computer Science. I received my bachelor degree in Software Engineering from Nanjing University, China.  Also, I worked in Meituan as a front-end engineer for one year.',
+    'I am very passionate about programming and am curious to learn new technologies.',
+    'If you want to make friends with me or give me some suggestions. Please visit the Contact Page to get in touch with me.'
+  ]
 };
 
 const featuredPosts = [
@@ -48,7 +52,7 @@ export default function Home() {
     <ThemeProvider theme={theme}>
       <CssBaseline />
       <Container maxWidth="lg">
-        <Header />
+        <Header pageType={PageType.HOME}/>
         <Box sx={{marginLeft:0.3, marginRight: 0.3}}>
           <MainFeaturedPost post={mainFeaturedPost} />
           <Grid container spacing={4}>

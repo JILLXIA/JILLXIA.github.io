@@ -16,6 +16,7 @@ import Typography from '@mui/material/Typography';
 import Grid from '@mui/material/Grid';
 import Image from '../../images/mouse_hover.jpg';
 import Box from '@mui/material/Box';
+import { PageType } from '../../components/Header';
 const theme = createTheme();
 
 const DEFAULT_PAGE = 1
@@ -28,7 +29,10 @@ export default function content() {
     description:
       "Multiple lines of text that form the lede, informing new readers quickly and efficiently about what's most interesting in this post's contents.",
     image: 'https://source.unsplash.com/random',
-    imageText: 'main image description'
+    imageText: 'main image description',
+    texts: [
+      '666'
+    ]
   };
     // 函数式组件的用法
     const data = useStaticQuery(graphql`
@@ -93,7 +97,7 @@ export default function content() {
     <ThemeProvider theme={theme}>
       <CssBaseline />
       <Container maxWidth="lg">
-        <Header />
+        <Header pageType={PageType.BLOG}/>
         <Box sx={{marginLeft:0.3, marginRight: 0.3}}>
           <MainFeaturedPost post={mainFeaturedPost} />
           {blogContent()}

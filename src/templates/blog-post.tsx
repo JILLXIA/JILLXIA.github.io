@@ -2,7 +2,7 @@ import React, { useState } from 'react'
 import CssBaseline from '@mui/material/CssBaseline';
 import Container from '@mui/material/Container';
 import { createTheme, ThemeProvider } from '@mui/material/styles';
-import Header from '../components/Header';
+import Header, { PageType } from '../components/Header';
 import Footer from '../components/Footer';
 import { MDXRenderer } from "gatsby-plugin-mdx"
 import Typography from '@mui/material/Typography';
@@ -30,7 +30,7 @@ export default function content({ pageContext }:any) {
     <ThemeProvider theme={theme}>
       <CssBaseline />
       <Container maxWidth="lg">
-        <Header />
+        <Header pageType={PageType.BLOG}/>
         <Box sx={{marginLeft:0.3, marginRight: 0.3}}>
             <Typography variant="h2" component="div" gutterBottom sx={{marginTop:3}}>
                 {product?.node?.frontmatter?.title}

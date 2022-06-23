@@ -4,6 +4,8 @@ import Typography from '@mui/material/Typography';
 import Grid from '@mui/material/Grid';
 import Link from '@mui/material/Link';
 import Box from '@mui/material/Box';
+import Icon from '../images/home_avator.jpg'
+import HomeBg from '../images/home_bg.jpeg'
 
 interface MainFeaturedPostProps {
   post: {
@@ -12,6 +14,7 @@ interface MainFeaturedPostProps {
     imageText: string;
     linkText?: string;
     title: string;
+    texts: string[];
   };
 }
 
@@ -25,13 +28,11 @@ export default function MainFeaturedPost(props: MainFeaturedPostProps) {
     <Paper
       sx={{
         position: 'relative',
-        backgroundColor: 'grey.800',
-        color: '#fff',
         mb: 4,
         backgroundSize: 'cover',
         backgroundRepeat: 'no-repeat',
         backgroundPosition: 'center',
-        backgroundImage: `url(${post.image})`
+        backgroundImage: `url(${HomeBg})`
       }}
     >
       {/* Increase the priority of the hero background image */}
@@ -42,30 +43,42 @@ export default function MainFeaturedPost(props: MainFeaturedPostProps) {
           top: 0,
           bottom: 0,
           right: 0,
-          left: 0,
-          backgroundColor: 'rgba(0,0,0,.3)',
+          left: 0
         }}
       />
-      <Grid container>
+      <Grid container sx={{flexDirection:'row', justifyContent:'space-between',p: { xs: 3, md: 6 }}}>
         <Grid item md={6}>
           <Box
             sx={{
-              position: 'relative',
-              p: { xs: 3, md: 6 },
-              pr: { md: 0 },
+              position: 'relative'
             }}
           >
             <Typography component="h1" variant="h3" color="inherit" gutterBottom>
               {post.title}
             </Typography>
-            <Typography variant="h5" color="inherit" paragraph>
-              {post.description}
-            </Typography>
+            {post.texts.map((text)=>
+            <Typography variant="h6" color="inherit" paragraph>
+              {text}
+            </Typography>)}
             {post.linkText ? <Link variant="subtitle1" href="#">
               {post.linkText}
             </Link>:null }
           </Box>
         </Grid>
+        <Box
+        component="img"
+        sx={{
+          height: 450,
+          width: 450,
+          maxHeight: { xs: 450, md: 430 },
+          maxWidth: { xs: 450, md: 430 },
+          alignSelf:'center',
+          justifySelf:'center',
+          borderRadius: '50%'
+        }}
+        alt="Icon."
+        src={Icon}
+      />
       </Grid>
     </Paper>
   );

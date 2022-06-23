@@ -22,13 +22,14 @@ import EmailIcon from '@mui/icons-material/Email';
 import GitHubIcon from '@mui/icons-material/GitHub';
 import LinkedInIcon from '@mui/icons-material/LinkedIn';
 import { navigate } from "gatsby"
+import { PageType } from '../../components/Header';
 const theme = createTheme();
 export default function contact() {
     return (
         <ThemeProvider theme={theme}>
           <CssBaseline />
           <Container maxWidth="lg">
-            <Header />
+            <Header pageType={PageType.CONTACT}/>
             <Box sx={{marginLeft:0.3, marginRight: 0.3}}>
                 <Grid container flexDirection={'row'}>
                     <img src={Image} width={509} height={339}/>
