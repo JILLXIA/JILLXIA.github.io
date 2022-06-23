@@ -12,6 +12,7 @@ import FeaturedPost from './FeaturedPost';
 import Footer from './Footer';
 import Box from '@mui/material/Box';
 import { PageType } from './Header';
+import HomeAccordion from './HomeAccordion';
 
 const mainFeaturedPost = {
   title: 'Welcome',
@@ -55,11 +56,7 @@ export default function Home() {
         <Header pageType={PageType.HOME}/>
         <Box sx={{marginLeft:0.3, marginRight: 0.3}}>
           <MainFeaturedPost post={mainFeaturedPost} />
-          <Grid container spacing={4}>
-            {featuredPosts.map((post,index) => (
-              <FeaturedPost key={post.title} post={post} index={index}/>
-            ))}
-          </Grid>
+          <HomeAccordion />
          </Box> 
       </Container>
       <Footer

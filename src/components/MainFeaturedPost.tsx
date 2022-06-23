@@ -47,7 +47,7 @@ export default function MainFeaturedPost(props: MainFeaturedPostProps) {
         }}
       />
       <Grid container sx={{flexDirection:'row', justifyContent:'space-between',p: { xs: 3, md: 6 }}}>
-        <Grid item md={6}>
+        <Grid item md={6} sm={12}>
           <Box
             sx={{
               position: 'relative'
@@ -65,20 +65,23 @@ export default function MainFeaturedPost(props: MainFeaturedPostProps) {
             </Link>:null }
           </Box>
         </Grid>
-        <Box
-        component="img"
-        sx={{
-          height: 450,
-          width: 450,
-          maxHeight: { xs: 450, md: 430 },
-          maxWidth: { xs: 450, md: 430 },
-          alignSelf:'center',
-          justifySelf:'center',
-          borderRadius: '50%'
-        }}
-        alt="Icon."
-        src={Icon}
-      />
+        <Grid container md={6} sm={12} sx={{ justifyContent:'center'}}>
+          <Box
+          component="img"
+          sx={{
+            height: 430,
+            width: 430,
+            maxHeight: { xs: 200, md: 430 },
+            maxWidth: { xs: 200, md: 430 },
+            borderRadius: '50%',
+            marginTop: {sm: 2},
+            alignSelf: 'center',
+            justifySelf:'center'
+          }}
+          alt="Icon."
+          src={Icon}
+        />
+      </Grid>
       </Grid>
     </Paper>
   );
