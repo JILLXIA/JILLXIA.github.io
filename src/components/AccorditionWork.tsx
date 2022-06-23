@@ -3,30 +3,39 @@ import Typography from '@mui/material/Typography';
 import Grid from '@mui/material/Grid';
 import Box from '@mui/material/Box';
 import NJUICON from '../images/NJU.jpg'
-import RICEICON from '../images/rice_icon.jpeg'
+import MEITUANICON from '../images/meituan.jpeg'
 import List from '@mui/material/List';
 import ListItem from '@mui/material/ListItem';
+import SIMUICON from '../images/SIMU.jpg'
 
 const resource = [
     {
-        image: RICEICON,
+        image: MEITUANICON,
         texts:[
-            "Department of Computer Science, Rice University, Houston,TX, USA",
-            "Aug 2022-Now",
-            "Master of Computer Science, Majoring in Computer Science"
+            "Meituan(www.meituan.com), Beijing, China",
+            "July 2021-July 2022",
+            "Front-End Engineer"
         ]
     },
     {
-        image: NJUICON,
+        image: MEITUANICON,
         texts:[
-            "Software Institute, Nanjing University, Nanjing China",
-            "Sep 2017-June 2021",
-            "Bachelor of Engineering, Majoring in Software Engineering"
+            "Meituan(www.meituan.com), Beijing, China",
+            "June 2020-Oct 2020",
+            "intern(Front-End)"
+        ]
+    },
+    {
+        image: SIMUICON,
+        texts:[
+            "SIMU, Nanjing, China",
+            "April 2020-May 2020",
+            "intern(Back-End)"
         ]
     }
 ]
-export default function Education() {
-    const renderASchool = (image: any, texts:string[]) => {
+export default function Work() {
+    const renderACompany = (image: any, texts:string[]) => {
     return (<Grid container sx={{flexDirection:'row',p: { xs: 3, md: 4 }}}>
         <Grid container md={6} sm={12} sx={{ justifyContent:'center'}}>
             <Box
@@ -65,7 +74,7 @@ export default function Education() {
     }
 
     const showView = resource.map((item,index) => <ListItem divider={index!=resource.length-1}>
-        {renderASchool(item.image,item.texts)}
+        {renderACompany(item.image,item.texts)}
         </ListItem>)
     return(
         <List>

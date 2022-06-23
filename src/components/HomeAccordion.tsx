@@ -9,6 +9,7 @@ import WorkIcon from '@mui/icons-material/Work';
 import SchoolIcon from '@mui/icons-material/School';
 import SentimentSatisfiedAltIcon from '@mui/icons-material/SentimentSatisfiedAlt';
 import Education from './AccorditionEducation';
+import Work from './AccorditionWork'
 
 export default function ControlledAccordions() {
   const [expanded, setExpanded] = React.useState<string | false>(false);
@@ -46,11 +47,7 @@ export default function ControlledAccordions() {
           <Typography sx={{ width: '33%', flexShrink: 0, marginLeft:1.5  }}>Work Experience</Typography>
         </AccordionSummary>
         <AccordionDetails>
-          <Typography>
-            Donec placerat, lectus sed mattis semper, neque lectus feugiat lectus,
-            varius pulvinar diam eros in elit. Pellentesque convallis laoreet
-            laoreet.
-          </Typography>
+          <Work />
         </AccordionDetails>
       </Accordion>
 
