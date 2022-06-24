@@ -10,6 +10,7 @@ import SchoolIcon from '@mui/icons-material/School';
 import SentimentSatisfiedAltIcon from '@mui/icons-material/SentimentSatisfiedAlt';
 import Education from './AccorditionEducation';
 import Work from './AccorditionWork'
+import Contact from './AccorditionContact';
 
 export default function ControlledAccordions() {
   const [expanded, setExpanded] = React.useState<string | false>(false);
@@ -80,10 +81,7 @@ export default function ControlledAccordions() {
           <Typography sx={{ width: '33%', flexShrink: 0, marginLeft:1.5 }}>Contact</Typography>
         </AccordionSummary>
         <AccordionDetails>
-          <Typography>
-            Nunc vitae orci ultricies, auctor nunc in, volutpat nisl. Integer sit
-            amet egestas eros, vitae egestas augue. Duis vel est augue.
-          </Typography>
+          <Contact />
         </AccordionDetails>
       </Accordion>
     </div>

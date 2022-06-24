@@ -61,16 +61,6 @@ export default function Header(props:any) {
             >
               <Link href="/blog" underline="none" color="inherit">Blog</Link>
             </Badge>
-            <Badge
-              anchorOrigin={{
-                vertical: 'bottom',
-                horizontal: 'right',
-              }}
-              invisible={!(pageType===PageType.CONTACT)}
-              color="primary" badgeContent=" " variant="dot"
-            >
-              <Link href="/contact" underline="none" color="inherit">Contact</Link>
-            </Badge>
             <Avatar alt="Yudi Xia" src={Image} onClick={() => { navigate('https://github.com/JILLXIA')}}/>
           </Stack>
         </Toolbar>
