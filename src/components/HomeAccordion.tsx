@@ -8,10 +8,56 @@ import ContactsIcon from '@mui/icons-material/Contacts';
 import WorkIcon from '@mui/icons-material/Work';
 import SchoolIcon from '@mui/icons-material/School';
 import SentimentSatisfiedAltIcon from '@mui/icons-material/SentimentSatisfiedAlt';
-import Education from './AccorditionEducation';
-import Work from './AccorditionWork'
+import EducationAndWork from './AccorditionEducationAndWork';
 import Contact from './AccorditionContact';
-
+import NJUICON from '../images/NJU.jpg'
+import RICEICON from '../images/rice_icon.jpeg'
+import SIMUICON from '../images/SIMU.jpg'
+import MEITUANICON from '../images/meituan.jpeg'
+const resourceEducation = [
+  {
+      image: RICEICON,
+      texts:[
+          "Department of Computer Science, Rice University, Houston,TX, USA",
+          "Aug 2022-Now",
+          "Master of Computer Science, Majoring in Computer Science"
+      ]
+  },
+  {
+      image: NJUICON,
+      texts:[
+          "Software Institute, Nanjing University, Nanjing China",
+          "Sep 2017-June 2021",
+          "Bachelor of Engineering, Majoring in Software Engineering"
+      ]
+  }
+]
+const resourceWork = [
+  {
+      image: MEITUANICON,
+      texts:[
+          "Meituan, (www.meituan.com), Beijing, China",
+          "July 2021-July 2022",
+          "Front-End Engineer"
+      ]
+  },
+  {
+      image: MEITUANICON,
+      texts:[
+          "Meituan, (www.meituan.com), Beijing, China",
+          "June 2020-Oct 2020",
+          "intern(Front-End)"
+      ]
+  },
+  {
+      image: SIMUICON,
+      texts:[
+          "SIMU, Nanjing, China",
+          "April 2020-May 2020",
+          "intern(Back-End)"
+      ]
+  }
+]
 export default function ControlledAccordions() {
   const [expanded, setExpanded] = React.useState<string | false>(false);
 
@@ -34,7 +80,7 @@ export default function ControlledAccordions() {
           </Typography>
         </AccordionSummary>
         <AccordionDetails>
-          <Education />
+          <EducationAndWork resource={resourceEducation} />
         </AccordionDetails>
       </Accordion>
 
@@ -48,7 +94,7 @@ export default function ControlledAccordions() {
           <Typography sx={{ width: '33%', flexShrink: 0, marginLeft:1.5  }}>Work Experience</Typography>
         </AccordionSummary>
         <AccordionDetails>
-          <Work />
+          <EducationAndWork resource={resourceWork} />
         </AccordionDetails>
       </Accordion>
 

@@ -25,13 +25,9 @@ export default function content() {
   const [pageNumber, setPageNumber] = useState<number>(DEFAULT_PAGE)
   const [selectIndex, setSelectIndex] = useState<number>(-1)
   const mainFeaturedPost = {
-    title: 'Title of a longer featured blog post',
-    description:
-      "Multiple lines of text that form the lede, informing new readers quickly and efficiently about what's most interesting in this post's contents.",
-    image: 'https://source.unsplash.com/random',
-    imageText: 'main image description',
+    title: 'My Blog Page',
     texts: [
-      '666'
+      'My Blog will update irregularly. I will record my study process, such as course notes, algorithm tips and so on.'
     ]
   };
     // 函数式组件的用法
@@ -99,7 +95,7 @@ export default function content() {
       <Container maxWidth="lg">
         <Header pageType={PageType.BLOG}/>
         <Box sx={{marginLeft:0.3, marginRight: 0.3}}>
-          <MainFeaturedPost post={mainFeaturedPost} />
+          <MainFeaturedPost post={mainFeaturedPost} isHomePage={false}/>
           {blogContent()}
           <Stack spacing={2}>
             <Pagination 

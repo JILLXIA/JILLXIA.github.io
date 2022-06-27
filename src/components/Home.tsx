@@ -17,8 +17,6 @@ import HomeAccordion from './HomeAccordion';
 const mainFeaturedPost = {
   title: 'Welcome',
   description:"555",
-  image: 'https://source.unsplash.com/random',
-  imageText: 'main image description',
   texts:[
     'Hi, I am Yudi Xia, a graduate student in Rice University majored in Computer Science. I received my bachelor degree in Software Engineering from Nanjing University, China.  Also, I worked in Meituan as a front-end engineer for one year.',
     'I am very passionate about programming and am curious to learn new technologies.',
@@ -55,7 +53,7 @@ export default function Home() {
       <Container maxWidth="lg">
         <Header pageType={PageType.HOME}/>
         <Box sx={{marginLeft:0.3, marginRight: 0.3}}>
-          <MainFeaturedPost post={mainFeaturedPost} />
+          <MainFeaturedPost post={mainFeaturedPost} isHomePage={true}/>
           <HomeAccordion />
          </Box> 
       </Container>

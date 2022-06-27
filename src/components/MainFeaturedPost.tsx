@@ -9,17 +9,15 @@ import HomeBg from '../images/home_bg.jpeg'
 
 interface MainFeaturedPostProps {
   post: {
-    description: string;
-    image: string;
-    imageText: string;
     linkText?: string;
     title: string;
     texts: string[];
-  };
+  },
+  isHomePage: boolean
 }
 
 export default function MainFeaturedPost(props: MainFeaturedPostProps) {
-  const { post } = props;
+  const { post,isHomePage } = props;
   if(!post){
     return null
   }
@@ -35,8 +33,6 @@ export default function MainFeaturedPost(props: MainFeaturedPostProps) {
         backgroundImage: `url(${HomeBg})`
       }}
     >
-      {/* Increase the priority of the hero background image */}
-      {<img style={{ display: 'none' }} src={post.image} alt={post.imageText} />}
       <Box
         sx={{
           position: 'absolute',
@@ -65,8 +61,8 @@ export default function MainFeaturedPost(props: MainFeaturedPostProps) {
             </Link>:null }
           </Box>
         </Grid>
-        <Grid container md={6} sm={12} sx={{ justifyContent:'center'}}>
-          <Box
+        {isHomePage ? <Grid container md={6} sm={12} sx={{ justifyContent:'center'}}>
+         <Box
           component="img"
           sx={{
             height: 430,
@@ -80,8 +76,8 @@ export default function MainFeaturedPost(props: MainFeaturedPostProps) {
           }}
           alt="Icon."
           src={Icon}
-        />
-      </Grid>
+          />
+        </Grid> : null}
       </Grid>
     </Paper>
   );
