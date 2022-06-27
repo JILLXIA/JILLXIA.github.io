@@ -23,16 +23,6 @@ const config: GatsbyConfig = {
         // Plugins configs
         plugins: [
           {
-            resolve: `gatsby-remark-prismjs`,
-            options: {
-              classPrefix: `language-`,
-              inlineCodeMarker:null,
-              aliases: {},
-              showLineNumbers: true,
-              noInlineHighlight: false,
-            },
-          },
-          {
             resolve: `gatsby-remark-images`,
             options: {
               // It's important to specify the maxWidth (in pixels) of
