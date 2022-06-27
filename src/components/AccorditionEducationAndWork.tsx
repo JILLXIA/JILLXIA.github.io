@@ -25,7 +25,7 @@ export default function EducationAndWork({resource}:any) {
             src={image}
         />
       </Grid>
-        <Grid item md={6} sm={12} xs={12} display='flex' sx={{marginTop: {sm:3, xs:3}}}>
+        <Grid item md={6} sm={12} xs={12} display='flex' sx={{marginTop: {sm:3, xs:3},justifyContent:'flex-start'}}>
           <Box
             sx={{
               position: 'relative'

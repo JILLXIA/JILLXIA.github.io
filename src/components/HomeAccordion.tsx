@@ -14,6 +14,7 @@ import NJUICON from '../images/NJU.jpg'
 import RICEICON from '../images/rice_icon.jpeg'
 import SIMUICON from '../images/SIMU.jpg'
 import MEITUANICON from '../images/meituan.jpeg'
+import Hobby from './AccorditionHobby';
 const resourceEducation = [
   {
       image: RICEICON,
@@ -110,10 +111,7 @@ export default function ControlledAccordions() {
           </Typography>
         </AccordionSummary>
         <AccordionDetails>
-          <Typography>
-            Nunc vitae orci ultricies, auctor nunc in, volutpat nisl. Integer sit
-            amet egestas eros, vitae egestas augue. Duis vel est augue.
-          </Typography>
+          <Hobby />
         </AccordionDetails>
       </Accordion>
 
