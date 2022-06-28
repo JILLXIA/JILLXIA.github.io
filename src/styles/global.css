@@ -20,3 +20,11 @@ blockquote p {
 .utterances {
   max-width: 100%;
 }
+
+a {
+  text-decoration-color: #E8A0BF;
+  text-decoration-thickness: .125em;
+  text-underline-offset: .1rem;
+  color:black;
+  font-weight: 600;
+}

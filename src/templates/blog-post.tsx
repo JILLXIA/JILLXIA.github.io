@@ -63,7 +63,7 @@ export default function content({ pageContext }:any) {
                         <ArrowBackIosNewIcon />
                         <Grid sx={{marginLeft:3}}>
                             <Typography variant="h6" gutterBottom component="div">
-                                NEXT
+                                Newer Post
                             </Typography>
                             <Typography variant="subtitle1" gutterBottom component="div">
                                 {product?.previous?.frontmatter?.title ?? 'This is the first blog.'}
@@ -85,7 +85,7 @@ export default function content({ pageContext }:any) {
                     <Grid direction="row" container alignItems="center" justifyContent="flex-end">
                         <Grid sx={{marginRight:3}}>
                             <Typography variant="h6" gutterBottom component="div" sx={{textAlign:'right'}}>
-                                PREVIOUS
+                                Older Post
                             </Typography>
                             <Typography variant="subtitle1" gutterBottom component="div" sx={{textAlign:'right'}}>
                                 {product?.next?.frontmatter?.title ?? 'This is the last blog.'}

@@ -8,7 +8,7 @@ Label: "Personal"
 ---
 
 This is my first blog post! Isn't it *great*?
-
+[hahah](www.baidu.com)
 Some of my **favorite** things are:
 
 * Pettinag dogs
