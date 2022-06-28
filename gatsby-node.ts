@@ -17,6 +17,7 @@ exports.createPages = async ({ graphql, actions, reporter }:any) => {
                     date
                     title
                     description
+                    Tags
                   }
                   slug
                 }

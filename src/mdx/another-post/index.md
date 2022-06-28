@@ -3,6 +3,7 @@ title: "Another Post"
 date: "2021-07-24"
 description: "这是another-post"
 path: "another-post-path"
+Tags: "another;post;path"
 ---
 
 Here's another post! It's even better than the first one!

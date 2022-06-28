@@ -1,4 +1,4 @@
-import React, { useState } from 'react'
+import React, { useState, useEffect } from 'react'
 import CssBaseline from '@mui/material/CssBaseline';
 import Container from '@mui/material/Container';
 import { createTheme, ThemeProvider } from '@mui/material/styles';
@@ -13,19 +13,14 @@ import ArrowBackIosNewIcon from '@mui/icons-material/ArrowBackIosNew';
 import ArrowForwardIosIcon from '@mui/icons-material/ArrowForwardIos';
 import Image from '../images/mouse_hover.jpg';
 import Box from '@mui/material/Box';
+import Comments from '../components/Comments';
+import { Chip, Divider, Stack } from '@mui/material';
 const theme = createTheme();
-const sections = [
-    { title: 'Education', url: '#' },
-    { title: 'Work Experience', url: '#' },
-    { title: 'Hobby', url: '#' },
-    { title: 'Opinion', url: '#' },
-    { title: 'Study', url: '#' },
-    { title: 'Contact', url: '#' }
-  ];
 export default function content({ pageContext }:any) {
     const { product } = pageContext
     const [leftPage, setLeftPage] = useState<boolean>(false)
     const [rightPage, setRightPage] = useState<boolean>(false)
+    const tags: string[] = product?.node?.frontmatter?.Tags?.split(";")
   return (
     <ThemeProvider theme={theme}>
       <CssBaseline />
@@ -41,6 +36,14 @@ export default function content({ pageContext }:any) {
             <MDXRenderer>
                 {product?.node?.body}
             </MDXRenderer>
+            <Typography variant="h5" component="div" gutterBottom sx={{marginTop:6}}>Tags</Typography>
+            <Divider sx={{marginBottom:5}}/>
+            <Stack direction={{md:'row',sm:'row',xs:'column'}} spacing={{ xs: 1, sm: 2, md: 2 }}>
+                {tags.map(item => <Chip label={item} color="primary" variant="outlined" />)}
+            </Stack>
+            <Typography variant="h5" component="div" gutterBottom sx={{marginTop:6}}>Comments</Typography>
+            <Divider sx={{marginBottom:5}}/>
+            <Comments />
             <Grid direction="row" container alignItems="center" justifyContent="space-between" xs={12} sx={{ flex:1, marginTop: 15}}>
                 {product?.previous?.slug ? <Paper 
                     sx={{width:430, padding:3, backgroundImage: leftPage ? `url(${Image})` : null}} 
@@ -89,6 +92,7 @@ export default function content({ pageContext }:any) {
                     </Grid>
                 </Paper>: null}
             </Grid>
+
          </Box>
       </Container>
       <Footer
