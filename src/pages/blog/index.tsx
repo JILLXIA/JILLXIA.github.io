@@ -5,7 +5,6 @@ import { createTheme, ThemeProvider } from '@mui/material/styles';
 import Header from '../../components/Header';
 import Footer from '../../components/Footer';
 import { graphql, useStaticQuery } from "gatsby"
-import Link from '@mui/material/Link'
 import List from '@mui/material/List';
 import MainFeaturedPost from '../../components/MainFeaturedPost';
 import Pagination from '@mui/material/Pagination'

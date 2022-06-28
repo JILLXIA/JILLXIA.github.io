@@ -30,9 +30,12 @@ export default function content({ pageContext }:any) {
             <Typography variant="h3" component="div" gutterBottom sx={{marginTop:3}}>
                 {product?.node?.frontmatter?.title}
             </Typography>
-            <Typography variant="subtitle1" color="text.secondary" sx={{fontStyle:'italic'}}>
-                Posted: {product?.node?.frontmatter?.date}
-            </Typography>
+            <Stack direction="row" spacing={2} alignItems="center">
+                <Typography variant="subtitle1" color="text.secondary" sx={{fontStyle:'italic'}}>
+                    Posted: {product?.node?.frontmatter?.date}
+                </Typography>
+                <Chip label={product?.node?.frontmatter?.Label} color="secondary" variant={"outlined"} />
+            </Stack>
             <MDXRenderer>
                 {product?.node?.body}
             </MDXRenderer>
