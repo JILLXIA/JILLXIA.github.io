@@ -1,20 +1,8 @@
-import React, { useState } from 'react'
-import CssBaseline from '@mui/material/CssBaseline';
-import Container from '@mui/material/Container';
-import { createTheme, ThemeProvider } from '@mui/material/styles';
-import { graphql, useStaticQuery } from "gatsby"
-import Link from '@mui/material/Link'
+import React from 'react'
 import List from '@mui/material/List';
-import Pagination from '@mui/material/Pagination'
 import Stack from '@mui/material/Stack'
-import Card from '@mui/material/Card';
-import CardContent from '@mui/material/CardContent';
 import Typography from '@mui/material/Typography';
-import Grid from '@mui/material/Grid';
-import Box from '@mui/material/Box';
-import { StaticImage } from 'gatsby-plugin-image';
-import Image from '../../images/ThankYou.jpeg'
-import { ListItem, Paper } from '@mui/material';
+import { ListItem } from '@mui/material';
 import EmailIcon from '@mui/icons-material/Email';
 import GitHubIcon from '@mui/icons-material/GitHub';
 import LinkedInIcon from '@mui/icons-material/LinkedIn';

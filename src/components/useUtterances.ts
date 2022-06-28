@@ -2,7 +2,7 @@ import { useEffect, useState } from 'react';
 
 export const useUtterances = (commentNodeId:any) => {
 	useEffect(() => {
-                 const scriptParentNode = document.getElementById(commentNodeId);
+        const scriptParentNode = document.getElementById(commentNodeId);
 		if (!scriptParentNode) return;
 		// docs - https://utteranc.es/
 		const script = document.createElement('script');
