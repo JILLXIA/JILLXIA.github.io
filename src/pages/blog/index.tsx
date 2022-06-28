@@ -17,13 +17,22 @@ import Grid from '@mui/material/Grid';
 import Image from '../../images/mouse_hover.jpg';
 import Box from '@mui/material/Box';
 import { PageType } from '../../components/Header';
+import { navigate } from "gatsby"
+import Chip from '@mui/material/Chip';
 const theme = createTheme();
-
 const DEFAULT_PAGE = 1
 const PAGE_SIZE = 2
+
+const label = [
+  "All",
+  "LeetCode",
+  "Front-End",
+  "Personal"
+]
 export default function content() {
   const [pageNumber, setPageNumber] = useState<number>(DEFAULT_PAGE)
   const [selectIndex, setSelectIndex] = useState<number>(-1)
+  const [labelIndex, setLabelIndex] = useState<number>(0)
   const mainFeaturedPost = {
     title: 'My Blog Page',
     texts: [
@@ -39,6 +48,8 @@ export default function content() {
               title
               date
               description
+              Tags
+              Label
             }
             id
             slug
@@ -52,9 +63,20 @@ export default function content() {
       setPageNumber(page)
     }
 
+    const handleLabelClick = (index:number) => {
+      setLabelIndex(index)
+    }
+
     const blogContent = () => {
-        const showData = data.allMdx.nodes.slice((pageNumber-1) * PAGE_SIZE, pageNumber * PAGE_SIZE)
+        const fileData = data.allMdx.nodes.filter((item:any) => {
+          if(labelIndex===0){
+            return true
+          }
+          return item?.frontmatter?.Label === label[labelIndex]
+        })
+        const showData = fileData.slice((pageNumber-1) * PAGE_SIZE, pageNumber * PAGE_SIZE)
         const view = showData.map((node:any, index:number) => {
+          const tags: string[] = node?.frontmatter?.Tags?.split(";")
           return(
             <Card 
               sx={{ 
@@ -67,7 +89,9 @@ export default function content() {
               }} 
               raised={selectIndex==index} 
               onMouseEnter={() => {setSelectIndex(index)}}
-              onMouseLeave={() => {setSelectIndex(-1)}}>
+              onMouseLeave={() => {setSelectIndex(-1)}}
+              onClick={() => {navigate(`/blog/${node.slug}`)}}
+              >
               <CardContent sx={{ flex: 1}}>
                 <Grid direction="row" container alignItems="center" xs={12}>
                   <Typography component="h2" variant="h5" color="primary">
@@ -80,9 +104,9 @@ export default function content() {
                   <Typography variant="subtitle1" paragraph color="text.secondary" sx={{marginTop:3}}>
                     {node?.frontmatter?.description}
                   </Typography>
-                  <Link href={`/blog/${node.slug}`} variant="subtitle1" color="primary" sx={{textAlign:'right'}} underline='hover'>
-                    Continue reading...
-                  </Link>
+                  <Stack direction={{md:'row',sm:'row',xs:'row'}} spacing={1}>
+                    {tags.map((item) =>  <Chip label={item} color="primary" variant={"outlined"} />)}
+                  </Stack>
               </CardContent>
             </Card>
           )
@@ -96,6 +120,9 @@ export default function content() {
         <Header pageType={PageType.BLOG}/>
         <Box sx={{marginLeft:0.3, marginRight: 0.3}}>
           <MainFeaturedPost post={mainFeaturedPost} isHomePage={false}/>
+          <Stack direction="row" spacing={1} sx={{marginBottom:3}}>
+            {label.map((item, index) => <Chip label={item} color="secondary" variant={index===labelIndex ? "filled" : "outlined"} onClick={() => handleLabelClick(index)}/>)}
+          </Stack>
           {blogContent()}
           <Stack spacing={2}>
             <Pagination 
@@ -113,14 +140,3 @@ export default function content() {
     </ThemeProvider>
   );
 }
-
-// 如果是类组件可以这样用
-// export const query = graphql`
-//   query {
-//     site {
-//       siteMetadata {
-//         description
-//       }
-//     }
-//   }
-// `

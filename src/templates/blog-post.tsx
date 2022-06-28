@@ -27,7 +27,7 @@ export default function content({ pageContext }:any) {
       <Container maxWidth="lg">
         <Header pageType={PageType.BLOG}/>
         <Box sx={{marginLeft:0.3, marginRight: 0.3}}>
-            <Typography variant="h2" component="div" gutterBottom sx={{marginTop:3}}>
+            <Typography variant="h3" component="div" gutterBottom sx={{marginTop:3}}>
                 {product?.node?.frontmatter?.title}
             </Typography>
             <Typography variant="subtitle1" color="text.secondary" sx={{fontStyle:'italic'}}>

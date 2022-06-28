@@ -4,6 +4,7 @@ date: "2021-07-23"
 description: "这是my-first-post"
 path: "my-first-post-path"
 Tags: "my;first;post"
+Label: "Personal"
 ---
 
 This is my first blog post! Isn't it *great*?

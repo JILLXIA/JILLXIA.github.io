@@ -3,6 +3,7 @@ title: "LeetCode Solution 224 & 227 & 772"
 date: "2022-05-25"
 description: "Recursion Java Solution for LeetCode 224 & 227 & 772"
 Tags: "leetcode;Stack;Recursion"
+Label: "LeetCode"
 ---
 We can sparate this problem into several small problems.
 
