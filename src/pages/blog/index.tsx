@@ -18,7 +18,7 @@ import Box from '@mui/material/Box';
 import { PageType } from '../../components/Header';
 import { navigate } from "gatsby"
 import Chip from '@mui/material/Chip';
-const theme = createTheme();
+import { theme } from '../../Theme'
 const DEFAULT_PAGE = 1
 const PAGE_SIZE = 2
 

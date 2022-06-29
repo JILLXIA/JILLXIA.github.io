@@ -1,7 +1,7 @@
 import React, { useState, useEffect } from 'react'
 import CssBaseline from '@mui/material/CssBaseline';
 import Container from '@mui/material/Container';
-import { createTheme, ThemeProvider } from '@mui/material/styles';
+import { ThemeProvider } from '@mui/material/styles';
 import Header, { PageType } from '../components/Header';
 import Footer from '../components/Footer';
 import { MDXRenderer } from "gatsby-plugin-mdx"
@@ -15,7 +15,7 @@ import Image from '../images/mouse_hover.jpg';
 import Box from '@mui/material/Box';
 import Comments from '../components/Comments';
 import { Chip, Divider, Stack } from '@mui/material';
-const theme = createTheme();
+import { theme } from '../Theme'
 export default function content({ pageContext }:any) {
     const { product } = pageContext
     const [leftPage, setLeftPage] = useState<boolean>(false)

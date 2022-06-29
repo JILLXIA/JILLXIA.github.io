@@ -1,19 +1,14 @@
 import * as React from 'react';
 import CssBaseline from '@mui/material/CssBaseline';
-import Grid from '@mui/material/Grid';
 import Container from '@mui/material/Container';
-import GitHubIcon from '@mui/icons-material/GitHub';
-import FacebookIcon from '@mui/icons-material/Facebook';
-import TwitterIcon from '@mui/icons-material/Twitter';
-import { createTheme, ThemeProvider } from '@mui/material/styles';
+import { ThemeProvider } from '@mui/material/styles';
 import Header from './Header';
 import MainFeaturedPost from './MainFeaturedPost';
-import FeaturedPost from './FeaturedPost';
 import Footer from './Footer';
 import Box from '@mui/material/Box';
 import { PageType } from './Header';
 import HomeAccordion from './HomeAccordion';
-
+import { theme } from '../Theme'
 const mainFeaturedPost = {
   title: 'Welcome',
   description:"555",
@@ -23,27 +18,6 @@ const mainFeaturedPost = {
     'If you want to make friends with me or give me some suggestions, you can see my contact information below and get in touch with me.'
   ]
 };
-
-const featuredPosts = [
-  {
-    title: 'Featured post',
-    date: 'Nov 12',
-    description:
-      'This is a wider card with supporting text below as a natural lead-in to additional content.',
-    image: 'https://source.unsplash.com/random',
-    imageLabel: 'Image Text',
-  },
-  {
-    title: 'Post title',
-    date: 'Nov 11',
-    description:
-      'This is a wider card with supporting text below as a natural lead-in to additional content.',
-    image: 'https://source.unsplash.com/random',
-    imageLabel: 'Image Text',
-  },
-];
-
-const theme = createTheme();
 
 export default function Home() {
 

@@ -26,8 +26,7 @@ export default function Header(props:any) {
             position:'sticky',
             top:0,
             zIndex:1,
-            overflowX: 'auto', 
-            backgroundColor:'#fff' ,
+            overflowX: 'auto',
             paddingTop:1,
             paddingBottom:1
           }}
