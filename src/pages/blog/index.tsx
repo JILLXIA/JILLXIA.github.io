@@ -84,7 +84,7 @@ export default function content() {
                 color: '#fff',
                 backgroundSize: 'cover',
                 backgroundPosition: 'center',
-                backgroundImage: selectIndex==index ? `url(${Image})` : null
+                // backgroundImage: selectIndex==index ? `url(${Image})` : null
               }} 
               raised={selectIndex==index} 
               onMouseEnter={() => {setSelectIndex(index)}}

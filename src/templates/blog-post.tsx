@@ -7,15 +7,13 @@ import Footer from '../components/Footer';
 import { MDXRenderer } from "gatsby-plugin-mdx"
 import Typography from '@mui/material/Typography';
 import Grid from '@mui/material/Grid';
-import Paper from '@mui/material/Paper';
 import { navigate } from "gatsby"
 import ArrowBackIosNewIcon from '@mui/icons-material/ArrowBackIosNew';
 import ArrowForwardIosIcon from '@mui/icons-material/ArrowForwardIos';
-import Image from '../images/mouse_hover.jpg';
-import Box from '@mui/material/Box';
 import Comments from '../components/Comments';
 import { Chip, Divider, Stack } from '@mui/material';
 import { theme } from '../Theme'
+const OPACITY_CHANGE = 0.5
 export default function content({ pageContext }:any) {
     const { product } = pageContext
     const [leftPage, setLeftPage] = useState<boolean>(false)
@@ -46,53 +44,44 @@ export default function content({ pageContext }:any) {
         <Typography variant="h5" component="div" gutterBottom sx={{marginTop:6}}>Comments</Typography>
         <Divider sx={{marginBottom:5}}/>
         <Comments />
-        <Grid direction="row" container alignItems="center" justifyContent="space-between" xs={12} sx={{ flex:1, marginTop: 15}}>
-            {product?.previous?.slug ? <Paper 
-                sx={{width:430, padding:3, backgroundImage: leftPage ? `url(${Image})` : null}} 
-                elevation={leftPage ? 6:4} 
-                onClick={() => {
+        <Grid direction="row" container alignItems="center" justifyContent="space-between" xs={12} flex={1} marginTop={15}>
+            <Grid direction="row" container alignItems="center" padding={3} flex={1}>
+                <ArrowBackIosNewIcon opacity={(leftPage && product?.previous?.slug) ? OPACITY_CHANGE : 1}/>
+                <Grid sx={{marginLeft:3, opacity: (leftPage && product?.previous?.slug) ? OPACITY_CHANGE : 1}}  
+                    onClick={() => {
                     if(product?.previous?.slug){
                         navigate(`/blog/${product?.previous?.slug}`)
                     }
-                }}
-                onMouseEnter={() => {setLeftPage(true)}}
-                onMouseLeave={() => {setLeftPage(false)}}
-            >
-                <Grid direction="row" container alignItems="center">
-                    <ArrowBackIosNewIcon />
-                    <Grid sx={{marginLeft:3}}>
-                        <Typography variant="h6" gutterBottom component="div">
-                            Newer Post
-                        </Typography>
-                        <Typography variant="subtitle1" gutterBottom component="div">
-                            {product?.previous?.frontmatter?.title ?? 'This is the first blog.'}
-                        </Typography>
-                    </Grid>
-                </Grid>  
-            </Paper>: null}
-            {product?.next?.slug ? <Paper 
-                sx={{width:430,padding:3,backgroundImage: rightPage ? `url(${Image})` : null}} 
-                elevation={rightPage ? 6 : 4} 
-                onClick={() => {
+                    }}
+                    onMouseEnter={() => {setLeftPage(true)}}
+                    onMouseLeave={() => {setLeftPage(false)}}
+                    >
+                    <Typography variant="h6" gutterBottom component="div">
+                        {product?.previous?.slug ? 'Newer Post' : 'That\'s All!'}
+                    </Typography>
+                    <Typography variant="subtitle1" gutterBottom component="div">
+                        {product?.previous?.frontmatter?.title ?? 'This is the first blog.'}
+                    </Typography>
+                </Grid>
+            </Grid>  
+            <Grid direction="row" container alignItems="center" justifyContent="flex-end" flex={1} padding={3}>
+                <Grid sx={{marginRight:3,opacity: (rightPage && product?.next?.slug) ? OPACITY_CHANGE : 1}} 
+                    onClick={() => {
                     if(product?.next?.slug){
                         navigate(`/blog/${product?.next?.slug}`)
                     }
-                }}
-                onMouseEnter={() => {setRightPage(true)}}
-                onMouseLeave={() => {setRightPage(false)}}
-                >
-                <Grid direction="row" container alignItems="center" justifyContent="flex-end">
-                    <Grid sx={{marginRight:3}}>
-                        <Typography variant="h6" gutterBottom component="div" sx={{textAlign:'right'}}>
-                            Older Post
-                        </Typography>
-                        <Typography variant="subtitle1" gutterBottom component="div" sx={{textAlign:'right'}}>
-                            {product?.next?.frontmatter?.title ?? 'This is the last blog.'}
-                        </Typography>
-                    </Grid>
-                    <ArrowForwardIosIcon />
+                    }}
+                    onMouseEnter={() => {setRightPage(true)}}
+                    onMouseLeave={() => {setRightPage(false)}}>
+                    <Typography variant="h6" gutterBottom component="div" sx={{textAlign:'right'}}>
+                        {product?.next?.slug ? 'Older Post' : 'That\'s All!'}
+                    </Typography>
+                    <Typography variant="subtitle1" gutterBottom component="div" sx={{textAlign:'right'}}>
+                        {product?.next?.frontmatter?.title ?? 'This is the last blog.'}
+                    </Typography>
                 </Grid>
-            </Paper>: null}
+                <ArrowForwardIosIcon opacity={(rightPage && product?.next?.slug) ? OPACITY_CHANGE : 1}/>
+            </Grid>
         </Grid>
       </Container>
       <Footer
