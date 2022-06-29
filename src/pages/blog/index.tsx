@@ -1,9 +1,5 @@
 import React, { useState } from 'react'
-import CssBaseline from '@mui/material/CssBaseline';
 import Container from '@mui/material/Container';
-import { createTheme, ThemeProvider } from '@mui/material/styles';
-import Header from '../../components/Header';
-import Footer from '../../components/Footer';
 import { graphql, useStaticQuery } from "gatsby"
 import List from '@mui/material/List';
 import MainFeaturedPost from '../../components/MainFeaturedPost';
@@ -13,12 +9,10 @@ import Card from '@mui/material/Card';
 import CardContent from '@mui/material/CardContent';
 import Typography from '@mui/material/Typography';
 import Grid from '@mui/material/Grid';
-import Image from '../../images/mouse_hover.jpg';
-import Box from '@mui/material/Box';
 import { PageType } from '../../components/Header';
 import { navigate } from "gatsby"
 import Chip from '@mui/material/Chip';
-import { theme } from '../../Theme'
+import { Wrapper } from '../../components/ThemeWrapper'
 const DEFAULT_PAGE = 1
 const PAGE_SIZE = 2
 
@@ -29,7 +23,7 @@ const label = [
   "Personal"
 ]
 export default function content() {
-  const [pageNumber, setPageNumber] = useState<number>(DEFAULT_PAGE)
+  // const [pageNumber, setPageNumber] = useState<number>(DEFAULT_PAGE)
   const [selectIndex, setSelectIndex] = useState<number>(-1)
   const [labelIndex, setLabelIndex] = useState<number>(0)
   const mainFeaturedPost = {
@@ -58,9 +52,9 @@ export default function content() {
       
     `)
 
-    const onChange = (event: object, page: number) => {
-      setPageNumber(page)
-    }
+    // const onChange = (event: object, page: number) => {
+    //   setPageNumber(page)
+    // }
 
     const handleLabelClick = (index:number) => {
       setLabelIndex(index)
@@ -73,8 +67,8 @@ export default function content() {
           }
           return item?.frontmatter?.Label === label[labelIndex]
         })
-        const showData = fileData.slice((pageNumber-1) * PAGE_SIZE, pageNumber * PAGE_SIZE)
-        const view = showData.map((node:any, index:number) => {
+        // const showData = fileData.slice((pageNumber-1) * PAGE_SIZE, pageNumber * PAGE_SIZE)
+        const view = fileData.map((node:any, index:number) => {
           const tags: string[] = node?.frontmatter?.Tags?.split(";")
           return(
             <Card 
@@ -113,27 +107,22 @@ export default function content() {
         return <List>{view}</List>
     }
   return (
-    <ThemeProvider theme={theme}>
-      <CssBaseline />
-      <Header pageType={PageType.BLOG}/>
+    <Wrapper pageType={PageType.BLOG}>
       <Container maxWidth="lg">
         <MainFeaturedPost post={mainFeaturedPost} isHomePage={false}/>
         <Stack direction="row" spacing={1} sx={{marginBottom:3}}>
           {label.map((item, index) => <Chip label={item} color="secondary" variant={index===labelIndex ? "filled" : "outlined"} onClick={() => handleLabelClick(index)}/>)}
         </Stack>
         {blogContent()}
-        <Stack spacing={2}>
+        {/* <Stack spacing={2}>
           <Pagination 
             sx={{alignSelf:'center', marginTop:5}} 
             count={Math.ceil(data.allMdx.nodes.length/PAGE_SIZE)} 
             color="primary" 
             size="large"
             onChange={onChange}/>
-        </Stack>
+        </Stack> */}
       </Container>
-      <Footer
-        description="All rights reserved"
-      />
-    </ThemeProvider>
+    </Wrapper>
   );
 }

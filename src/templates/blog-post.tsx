@@ -1,9 +1,6 @@
-import React, { useState, useEffect } from 'react'
-import CssBaseline from '@mui/material/CssBaseline';
+import React, { useState } from 'react'
 import Container from '@mui/material/Container';
-import { ThemeProvider } from '@mui/material/styles';
-import Header, { PageType } from '../components/Header';
-import Footer from '../components/Footer';
+import { PageType } from '../components/Header';
 import { MDXRenderer } from "gatsby-plugin-mdx"
 import Typography from '@mui/material/Typography';
 import Grid from '@mui/material/Grid';
@@ -12,7 +9,7 @@ import ArrowBackIosNewIcon from '@mui/icons-material/ArrowBackIosNew';
 import ArrowForwardIosIcon from '@mui/icons-material/ArrowForwardIos';
 import Comments from '../components/Comments';
 import { Chip, Divider, Stack } from '@mui/material';
-import { theme } from '../Theme'
+import { Wrapper } from '../components/ThemeWrapper'
 const OPACITY_CHANGE = 0.5
 export default function content({ pageContext }:any) {
     const { product } = pageContext
@@ -20,9 +17,7 @@ export default function content({ pageContext }:any) {
     const [rightPage, setRightPage] = useState<boolean>(false)
     const tags: string[] = product?.node?.frontmatter?.Tags?.split(";")
   return (
-    <ThemeProvider theme={theme}>
-      <CssBaseline />
-      <Header pageType={PageType.BLOG}/>
+    <Wrapper pageType={PageType.BLOG}>
       <Container maxWidth="lg">
         <Typography variant="h3" component="div" gutterBottom sx={{marginTop:3}}>
             {product?.node?.frontmatter?.title}
@@ -39,15 +34,15 @@ export default function content({ pageContext }:any) {
         <Typography variant="h5" component="div" gutterBottom sx={{marginTop:6}}>Tags</Typography>
         <Divider sx={{marginBottom:5}}/>
         <Stack direction={{md:'row',sm:'row',xs:'column'}} spacing={{ xs: 1, sm: 2, md: 2 }}>
-            {tags.map(item => <Chip label={item} color="primary" variant="outlined" />)}
+            {tags.map((item,index) => <Chip label={item} color="primary" variant="outlined" key={index}/>)}
         </Stack>
         <Typography variant="h5" component="div" gutterBottom sx={{marginTop:6}}>Comments</Typography>
         <Divider sx={{marginBottom:5}}/>
         <Comments />
-        <Grid direction="row" container alignItems="center" justifyContent="space-between" xs={12} flex={1} marginTop={15}>
+        <Grid direction="row" container alignItems="center" justifyContent="space-between" flex={1} marginTop={15}>
             <Grid direction="row" container alignItems="center" padding={3} flex={1}>
                 <ArrowBackIosNewIcon opacity={(leftPage && product?.previous?.slug) ? OPACITY_CHANGE : 1}/>
-                <Grid sx={{marginLeft:3, opacity: (leftPage && product?.previous?.slug) ? OPACITY_CHANGE : 1}}  
+                <Grid item sx={{marginLeft:3, opacity: (leftPage && product?.previous?.slug) ? OPACITY_CHANGE : 1}}  
                     onClick={() => {
                     if(product?.previous?.slug){
                         navigate(`/blog/${product?.previous?.slug}`)
@@ -65,7 +60,7 @@ export default function content({ pageContext }:any) {
                 </Grid>
             </Grid>  
             <Grid direction="row" container alignItems="center" justifyContent="flex-end" flex={1} padding={3}>
-                <Grid sx={{marginRight:3,opacity: (rightPage && product?.next?.slug) ? OPACITY_CHANGE : 1}} 
+                <Grid item sx={{marginRight:3,opacity: (rightPage && product?.next?.slug) ? OPACITY_CHANGE : 1}} 
                     onClick={() => {
                     if(product?.next?.slug){
                         navigate(`/blog/${product?.next?.slug}`)
@@ -84,9 +79,6 @@ export default function content({ pageContext }:any) {
             </Grid>
         </Grid>
       </Container>
-      <Footer
-        description="All rights reserved"
-      />
-    </ThemeProvider>
+    </Wrapper>
   );
 }

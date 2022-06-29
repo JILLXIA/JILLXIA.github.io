@@ -19,7 +19,7 @@ export default function Contact() {
             sx={{alignItems:'center'}}
             >
                 <EmailIcon />
-                <Typography component="h2" variant="h5" color="#333">
+                <Typography component="h2" variant="h5" color="inherit">
                     xyd.yudi@hotmail.com
                 </Typography>
 
@@ -33,7 +33,7 @@ export default function Contact() {
             onClick={() => {navigate("https://github.com/JILLXIA")}}
             >
                 <GitHubIcon />
-                <Typography component="h2" variant="h5" color="#333">
+                <Typography component="h2" variant="h5" color="inherit">
                     JILLXIA
                 </Typography>
 
@@ -47,7 +47,7 @@ export default function Contact() {
             onClick={() => {navigate("https://www.linkedin.com/in/yudi-xia-4613451aa/")}}
             >
                 <LinkedInIcon />
-                <Typography component="h2" variant="h5" color="#333">
+                <Typography component="h2" variant="h5" color="inherit">
                     Yudi Xia
                 </Typography>
 

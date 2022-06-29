@@ -15,7 +15,8 @@ export enum PageType{
   CONTACT = 3
 }
 export default function Header(props:any) {
-  const { pageType } = props
+  const { children,  ...rest  } = props
+  const { pageType } = rest
   return (
     <React.Fragment>
       <AppBar position="sticky" color="inherit" enableColorOnDark elevation={0}>
@@ -41,7 +42,7 @@ export default function Header(props:any) {
           </Badge>
           <Stack
             direction="row"
-            spacing={5}
+            spacing={3}
             sx={{alignItems:'center'}}
             >
             <Badge
@@ -54,6 +55,7 @@ export default function Header(props:any) {
             >
               <Link href="/blog" underline="none" color="inherit">Blog</Link>
             </Badge>
+            {children}
             <Avatar alt="Yudi Xia" src={Image} onClick={() => { navigate('https://github.com/JILLXIA')}}/>
           </Stack>
         </Toolbar>

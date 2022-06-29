@@ -1,14 +1,9 @@
 import * as React from 'react';
-import CssBaseline from '@mui/material/CssBaseline';
 import Container from '@mui/material/Container';
-import { ThemeProvider } from '@mui/material/styles';
-import Header from './Header';
 import MainFeaturedPost from './MainFeaturedPost';
-import Footer from './Footer';
-import Box from '@mui/material/Box';
-import { PageType } from './Header';
 import HomeAccordion from './HomeAccordion';
-import { theme } from '../Theme'
+import { Wrapper } from './ThemeWrapper'
+import { PageType } from './Header';
 const mainFeaturedPost = {
   title: 'Welcome',
   description:"555",
@@ -22,16 +17,11 @@ const mainFeaturedPost = {
 export default function Home() {
 
   return (
-    <ThemeProvider theme={theme}>
-      <CssBaseline />
-      <Header pageType={PageType.HOME}/>
+    <Wrapper pageType={PageType.HOME}>
       <Container maxWidth="lg">
           <MainFeaturedPost post={mainFeaturedPost} isHomePage={true}/>
           <HomeAccordion />
       </Container>
-      <Footer
-        description="All rights reserved"
-      />
-    </ThemeProvider>
+    </Wrapper>
   );
 }

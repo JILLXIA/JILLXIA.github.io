@@ -45,7 +45,7 @@ export default function EducationAndWork({resource}:any) {
       </Grid>)
     }
 
-    const showView = resource.map((item: { image: any; texts: string[]; },index: number) => <ListItem divider={index!=resource.length-1}>
+    const showView = resource.map((item: { image: any; texts: string[]; },index: number) => <ListItem divider={index!=resource.length-1} key={index}>
         {renderASchool(item.image,item.texts)}
         </ListItem>)
     return(

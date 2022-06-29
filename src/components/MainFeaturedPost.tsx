@@ -52,8 +52,8 @@ export default function MainFeaturedPost(props: MainFeaturedPostProps) {
             <Typography component="h1" variant="h3" color="inherit" gutterBottom>
               {post.title}
             </Typography>
-            {post.texts.map((text)=>
-            <Typography variant="h6" color="inherit" paragraph>
+            {post.texts.map((text,index)=>
+            <Typography variant="h6" color="inherit" paragraph key={index}>
               {text}
             </Typography>)}
             {post.linkText ? <Link variant="subtitle1" href="#">
