@@ -24,12 +24,10 @@ export default function Home() {
   return (
     <ThemeProvider theme={theme}>
       <CssBaseline />
+      <Header pageType={PageType.HOME}/>
       <Container maxWidth="lg">
-        <Header pageType={PageType.HOME}/>
-        <Box sx={{marginLeft:0.3, marginRight: 0.3}}>
           <MainFeaturedPost post={mainFeaturedPost} isHomePage={true}/>
           <HomeAccordion />
-         </Box> 
       </Container>
       <Footer
         description="All rights reserved"

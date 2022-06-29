@@ -7,6 +7,7 @@ import Avatar from '@mui/material/Avatar';
 import Image from '../images/avator.jpg';
 import Stack from '@mui/material/Stack';
 import Badge from '@mui/material/Badge';
+import AppBar from '@mui/material/AppBar';
 
 export enum PageType{
   HOME = 1,
@@ -17,15 +18,12 @@ export default function Header(props:any) {
   const { pageType } = props
   return (
     <React.Fragment>
-      {/* <AppBar position="sticky"> */}
+      <AppBar position="sticky" color="inherit" enableColorOnDark elevation={0}>
         <Toolbar
           variant="dense"
           sx={{ 
             justifyContent: 'space-between', 
             alignContent:'center', 
-            position:'sticky',
-            top:0,
-            zIndex:1,
             overflowX: 'auto',
             paddingTop:1,
             paddingBottom:1
@@ -59,7 +57,7 @@ export default function Header(props:any) {
             <Avatar alt="Yudi Xia" src={Image} onClick={() => { navigate('https://github.com/JILLXIA')}}/>
           </Stack>
         </Toolbar>
-      {/* </AppBar> */}
+      </AppBar>
     </React.Fragment>
   );
 }

@@ -115,23 +115,21 @@ export default function content() {
   return (
     <ThemeProvider theme={theme}>
       <CssBaseline />
+      <Header pageType={PageType.BLOG}/>
       <Container maxWidth="lg">
-        <Header pageType={PageType.BLOG}/>
-        <Box sx={{marginLeft:0.3, marginRight: 0.3}}>
-          <MainFeaturedPost post={mainFeaturedPost} isHomePage={false}/>
-          <Stack direction="row" spacing={1} sx={{marginBottom:3}}>
-            {label.map((item, index) => <Chip label={item} color="secondary" variant={index===labelIndex ? "filled" : "outlined"} onClick={() => handleLabelClick(index)}/>)}
-          </Stack>
-          {blogContent()}
-          <Stack spacing={2}>
-            <Pagination 
-              sx={{alignSelf:'center', marginTop:5}} 
-              count={Math.ceil(data.allMdx.nodes.length/PAGE_SIZE)} 
-              color="primary" 
-              size="large"
-              onChange={onChange}/>
-          </Stack>
-        </Box>
+        <MainFeaturedPost post={mainFeaturedPost} isHomePage={false}/>
+        <Stack direction="row" spacing={1} sx={{marginBottom:3}}>
+          {label.map((item, index) => <Chip label={item} color="secondary" variant={index===labelIndex ? "filled" : "outlined"} onClick={() => handleLabelClick(index)}/>)}
+        </Stack>
+        {blogContent()}
+        <Stack spacing={2}>
+          <Pagination 
+            sx={{alignSelf:'center', marginTop:5}} 
+            count={Math.ceil(data.allMdx.nodes.length/PAGE_SIZE)} 
+            color="primary" 
+            size="large"
+            onChange={onChange}/>
+        </Stack>
       </Container>
       <Footer
         description="All rights reserved"

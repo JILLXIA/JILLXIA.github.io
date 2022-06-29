@@ -65,10 +65,10 @@ export default function MainFeaturedPost(props: MainFeaturedPostProps) {
          <Box
           component="img"
           sx={{
-            height: 430,
-            width: 430,
-            maxHeight: { xs: 200, md: 430 },
-            maxWidth: { xs: 200, md: 430 },
+            height: 300,
+            width: 300,
+            maxHeight: { xs: 200, md: 300 },
+            maxWidth: { xs: 200, md: 300 },
             borderRadius: '50%',
             marginTop: {sm: 2},
             alignSelf: 'center',
