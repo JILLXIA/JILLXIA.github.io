@@ -23,7 +23,10 @@ export default function MainFeaturedPost(props: MainFeaturedPostProps) {
   }
 
   return (
-    <Paper
+    <Box
+      display="flex"
+      justifyContent="center"
+      alignItems="center"
       sx={{
         position: 'relative',
         mb: 4,
@@ -33,32 +36,20 @@ export default function MainFeaturedPost(props: MainFeaturedPostProps) {
         backgroundImage: `url(${HomeBg})`
       }}
     >
-      <Box
-        sx={{
-          position: 'absolute',
-          top: 0,
-          bottom: 0,
-          right: 0,
-          left: 0
-        }}
-      />
-      <Grid container sx={{flexDirection:'row', justifyContent:'space-between',p: { xs: 3, md: 6 }}}>
+      <Grid container maxWidth="lg" sx={{justifySelf:'center',alignSelf:'center',flexDirection:'row', justifyContent:'space-between',p: { xs: 3, md: 6 }}}>
         <Grid item md={6} sm={12}>
           <Box
             sx={{
               position: 'relative'
             }}
           >
-            <Typography component="h1" variant="h3" color="inherit" gutterBottom>
+            <Typography component="h1" variant="h3" color="#fff" gutterBottom>
               {post.title}
             </Typography>
             {post.texts.map((text,index)=>
-            <Typography variant="h6" color="inherit" paragraph key={index}>
+            <Typography variant="h6" color="#fff" paragraph key={index}>
               {text}
             </Typography>)}
-            {post.linkText ? <Link variant="subtitle1" href="#">
-              {post.linkText}
-            </Link>:null }
           </Box>
         </Grid>
         {isHomePage ? <Grid container md={6} sm={12} sx={{ justifyContent:'center'}}>
@@ -79,6 +70,6 @@ export default function MainFeaturedPost(props: MainFeaturedPostProps) {
           />
         </Grid> : null}
       </Grid>
-    </Paper>
+    </Box>
   );
 }

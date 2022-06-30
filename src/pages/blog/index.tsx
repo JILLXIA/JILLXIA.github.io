@@ -106,9 +106,11 @@ export default function content() {
         return <List>{view}</List>
     }
   return (
+    <>
+      {/* <MainFeaturedPost post={mainFeaturedPost} isHomePage={false}/> */}
       <Container maxWidth="lg">
         <MainFeaturedPost post={mainFeaturedPost} isHomePage={false}/>
-        <Stack direction="row" spacing={1} sx={{marginBottom:3}}>
+        <Stack direction="row" spacing={1} sx={{marginBottom:3, position:'sticky'}}>
           {label.map((item, index) => <Chip label={item} color="secondary" variant={index===labelIndex ? "filled" : "outlined"} onClick={() => handleLabelClick(index)}/>)}
         </Stack>
         {blogContent()}
@@ -121,5 +123,6 @@ export default function content() {
             onChange={onChange}/>
         </Stack> */}
       </Container>
+    </>
   );
 }
