@@ -19,7 +19,7 @@ You can see the whole list of my blog in this page.
 
 I plan to post some blogs from time to time. In the past, I wrote down my opinion and notes in some open source documentation application like [YuQue](https://www.yuque.com) or [OneNote](https://www.onenote.com). Now I've found that it's also a good option to document it in my own blog.
 
-## [Blog Detail Page](/blog/my-first-post/)
+## [Blog Detail Page](/blog/UsingGatsbyToCreateMyWebsite/)
 This is my Blog Detail Page. In this page, I have access to [utteranc](https://utteranc.es/), a lightweight comments widget built on GitHub issues. Once you make a comment, it will create a new issue in my [Github Repositories](https://github.com/JILLXIA/xiayubudi).
 
 # 2. Technology Stack and Resources I Used
