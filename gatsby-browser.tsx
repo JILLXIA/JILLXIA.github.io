@@ -4,6 +4,8 @@ import Highlight, { defaultProps } from 'prism-react-renderer';
 import theme from "prism-react-renderer/themes/duotoneLight";
 import styled from "styled-components";
 import "./src/styles/global.css"
+import Layout from "./src/components/layout"
+import { PageType } from './src/components/Header';
 /* eslint-disable */
 const Pre = styled.pre`
   text-align: left;
@@ -64,3 +66,14 @@ const component = {
 export const wrapRootElement = ({ element }) => {
   return <MDXProvider components={component}>{element}</MDXProvider>;
 };
+
+export const wrapPageElement = ({ element, props }) => {
+  // props provide same data to Layout as Page element will get
+  // including location, data, etc - you don't need to pass it
+  console.log(`layout ${element.key}`)
+  let pageType = PageType.HOME
+  if(element.key.startsWith('/blog/')){
+    pageType = PageType.BLOG
+  }
+  return <Layout pageType={pageType}>{element}</Layout>
+}

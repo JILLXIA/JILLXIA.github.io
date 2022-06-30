@@ -1,11 +1,11 @@
-import React, { useState, useReducer} from 'react'
+import React from 'react'
 import CssBaseline from '@mui/material/CssBaseline';
 import { ThemeProvider } from '@mui/material/styles';
 import { lightTheme, darkTheme } from '../Theme'
 import Footer from './Footer';
 import Header from './Header';
 import { styled } from '@mui/material/styles';
-import Switch, { SwitchProps } from '@mui/material/Switch';
+import Switch from '@mui/material/Switch';
 const MaterialUISwitch = styled(Switch)(({ theme }) => ({
     width: 62,
     height: 34,
@@ -52,15 +52,12 @@ const MaterialUISwitch = styled(Switch)(({ theme }) => ({
       borderRadius: 20 / 2,
     },
   }));
-let checked = false
-export const Wrapper = (props:any) => {
+
+export default function Layout(props:any){
     const { children, ...rest } = props
-    console.log(`hahahahahahahah${JSON.stringify(rest)}`)
-    const [ignored, forceUpdate] = useReducer(x => x + 1, 0);
-    // const [checked, setChecked] = React.useState(false);
+    const [checked, setChecked] = React.useState(false);
     const handleChange = () => {
-      checked = !checked
-      forceUpdate()
+      setChecked(!checked)
     };
     return (
         <ThemeProvider theme={checked ? darkTheme : lightTheme}>

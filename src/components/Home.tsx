@@ -2,8 +2,6 @@ import * as React from 'react';
 import Container from '@mui/material/Container';
 import MainFeaturedPost from './MainFeaturedPost';
 import HomeAccordion from './HomeAccordion';
-import { Wrapper } from './ThemeWrapper'
-import { PageType } from './Header';
 const mainFeaturedPost = {
   title: 'Welcome',
   description:"555",
@@ -17,11 +15,9 @@ const mainFeaturedPost = {
 export default function Home() {
 
   return (
-    <Wrapper pageType={PageType.HOME}>
       <Container maxWidth="lg">
           <MainFeaturedPost post={mainFeaturedPost} isHomePage={true}/>
           <HomeAccordion />
       </Container>
-    </Wrapper>
   );
 }

@@ -9,7 +9,6 @@ import ArrowBackIosNewIcon from '@mui/icons-material/ArrowBackIosNew';
 import ArrowForwardIosIcon from '@mui/icons-material/ArrowForwardIos';
 import Comments from '../components/Comments';
 import { Chip, Divider, Stack } from '@mui/material';
-import { Wrapper } from '../components/ThemeWrapper'
 const OPACITY_CHANGE = 0.5
 export default function content({ pageContext }:any) {
     const { product } = pageContext
@@ -17,7 +16,6 @@ export default function content({ pageContext }:any) {
     const [rightPage, setRightPage] = useState<boolean>(false)
     const tags: string[] = product?.node?.frontmatter?.Tags?.split(";")
   return (
-    <Wrapper pageType={PageType.BLOG}>
       <Container maxWidth="lg">
         <Typography variant="h3" component="div" gutterBottom sx={{marginTop:3}}>
             {product?.node?.frontmatter?.title}
@@ -79,6 +77,5 @@ export default function content({ pageContext }:any) {
             </Grid>
         </Grid>
       </Container>
-    </Wrapper>
   );
 }

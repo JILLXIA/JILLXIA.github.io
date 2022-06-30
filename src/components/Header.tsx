@@ -1,6 +1,5 @@
 import * as React from 'react';
 import Toolbar from '@mui/material/Toolbar';
-import Link from '@mui/material/Link';
 import HomeIcon from '@mui/icons-material/Home';
 import { navigate } from "gatsby"
 import Avatar from '@mui/material/Avatar';
@@ -8,6 +7,7 @@ import Image from '../images/avator.jpg';
 import Stack from '@mui/material/Stack';
 import Badge from '@mui/material/Badge';
 import AppBar from '@mui/material/AppBar';
+import { Typography } from '@mui/material';
 
 export enum PageType{
   HOME = 1,
@@ -53,7 +53,7 @@ export default function Header(props:any) {
               invisible={!(pageType===PageType.BLOG)}
               color="primary" badgeContent=" " variant="dot"
             >
-              <Link href="/blog" underline="none" color="inherit">Blog</Link>
+              <Typography color="inherit" fontWeight={600} onClick={() => { navigate(`/blog`)}}>Blog</Typography>
             </Badge>
             {children}
             <Avatar alt="Yudi Xia" src={Image} onClick={() => { navigate('https://github.com/JILLXIA')}}/>

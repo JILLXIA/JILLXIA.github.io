@@ -12,7 +12,6 @@ import Grid from '@mui/material/Grid';
 import { PageType } from '../../components/Header';
 import { navigate } from "gatsby"
 import Chip from '@mui/material/Chip';
-import { Wrapper } from '../../components/ThemeWrapper'
 const DEFAULT_PAGE = 1
 const PAGE_SIZE = 2
 
@@ -107,7 +106,6 @@ export default function content() {
         return <List>{view}</List>
     }
   return (
-    <Wrapper pageType={PageType.BLOG}>
       <Container maxWidth="lg">
         <MainFeaturedPost post={mainFeaturedPost} isHomePage={false}/>
         <Stack direction="row" spacing={1} sx={{marginBottom:3}}>
@@ -123,6 +121,5 @@ export default function content() {
             onChange={onChange}/>
         </Stack> */}
       </Container>
-    </Wrapper>
   );
 }
