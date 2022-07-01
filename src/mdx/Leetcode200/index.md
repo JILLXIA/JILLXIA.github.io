@@ -1,7 +1,7 @@
 ---
 title: "LeetCode Solution 200"
 date: "2022-06-30"
-description: "Recursion Java Solution for LeetCode 224 & 227 & 772"
+description: "Union Find Java Solution for LeetCode 200"
 Tags: "leetcode;Union Find"
 Label: "LeetCode"
 ---
