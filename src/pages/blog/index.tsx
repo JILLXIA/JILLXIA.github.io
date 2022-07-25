@@ -19,6 +19,7 @@ const label = [
   "All",
   "LeetCode",
   "Front-End",
+  "Java",
   "Personal"
 ]
 export default function content() {
