@@ -13,6 +13,7 @@ import Contact from './AccorditionContact';
 import NJUICON from '../images/NJU.jpg'
 import RICEICON from '../images/rice_icon.jpeg'
 import SIMUICON from '../images/SIMU.jpg'
+import EBAYICON from '../images/ebay.png'
 import MEITUANICON from '../images/meituan.jpeg'
 import Hobby from './AccorditionHobby';
 const resourceEducation = [
@@ -34,6 +35,14 @@ const resourceEducation = [
   }
 ]
 const resourceWork = [
+  {
+    image: EBAYICON,
+    texts:[
+        "eBay Inc, San Jose, CA",
+        "May 2023-Aug 2023",
+        "intern(Back-End)"
+    ]
+  },
   {
       image: MEITUANICON,
       texts:[

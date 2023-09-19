@@ -53,7 +53,7 @@ export default function MainFeaturedPost(props: MainFeaturedPostProps) {
           </Box>
         </Grid>
         {isHomePage ? <Grid container md={6} sm={12} sx={{ justifyContent:'center'}}>
-         <Box
+        <Box
           component="img"
           sx={{
             height: 300,
